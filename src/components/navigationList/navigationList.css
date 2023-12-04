@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.cards {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cards .red,
+.cards .blue,
+.cards .green {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+.cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 80px;
+    width: 250px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.cards .card p.tip {
+    font-size: 1.4em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cards .card p.second-text {
+    font-size: .7em;
+}
+
+
+.cards .card:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.list-items:hover>.card:not(:hover) {
+    filter: blur(7px);
+    transform: scale(0.9, 0.9);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .cards h2 {
+        display: none;
+    }
+
+    .cards .card {
+        width: 60vw;
+        height: 60px;
+        /* padding: 5px; */
+    }
+
+}

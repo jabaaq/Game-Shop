@@ -10,8 +10,195 @@ video {
     z-index: -1;
 }
 
-.main-page {
+.page {
     position: relative;
     height: 100%;
     overflow: hidden;
+}
+
+.main-page {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.left-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 40px;
+}
+
+.right-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 50px 30px;
+}
+
+.content a {
+    text-decoration: none;
+    max-width: 100px;
+}
+
+
+.information-block {
+    position: relative;
+    max-width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin: 90px 0;
+}
+
+.information-block .content {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    z-index: 1;
+    transform: 0.5s;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#content2 {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+}
+
+#rawg-btn {
+    font-weight: 500;
+}
+
+.information-block .content h2 {
+    font-size: 40px;
+    color: #fff;
+    margin: 0;
+    text-wrap: nowrap;
+}
+
+.github-btn {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 5px;
+    list-style: none;
+    padding: 6px 6px;
+    height: 35px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+
+.github-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .information-block {
+        width: 50vw;
+    }
+
+    .information-block .content h2 {
+        font-size: 1.5em
+    }
+
+    .information-block .content p {
+        font-size: 3vw;
+    }
+
+    .information-block .content {
+        padding: 30px;
+        /* overflow-y: scroll; */
+    }
+
+    #content2 {
+        overflow: hidden;
+        gap: 1vw;
+        flex-direction: row;
+        height: 0px;
+    }
+
+    #content2 a p {
+        width: 10vw;
+        font-size: 3vw;
+    }
+
+
+    .main-page {
+        flex-direction: column;
+        gap: 80px;
+        width: 100%;
+        /* justify-content: center; */
+    }
+
+    .right-page,
+    .left-page {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-page {
+        height: 200px;
+        padding: 0;
+        width: 85vw;
+    }
+
+    .right-page {
+        height: 200px;
+        width: 85vw;
+        display: block;
+    }
+
+    video {
+        object-fit: cover;
+    }
+
+    .page {
+        overflow: scroll
+    }
+
 }

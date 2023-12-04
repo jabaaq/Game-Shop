@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useRawgService } from "../../services/rawgService";
 import "./App.css";
 import { MainPage } from "../mainPage/mainPage";
 
