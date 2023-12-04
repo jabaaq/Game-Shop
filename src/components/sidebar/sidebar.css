@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+#sidebar {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    background-color: #0F1011;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navSection {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    font-size: 1.5vw;
+    color: white;
+    cursor: pointer;
+}
+
+.section-title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Rowdies', sans-serif;
+}
+
+.section-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 0 15px;
+}
+
+.iconBox {
+    width: 30px;
+    height: 30px;
+    background-color: #2D2D2D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.navSection :hover .iconBox {
+    background-color: white;
+    color: #0F1011;
+}
+
+.each-section {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 5px;
+    flex-direction: column;
+}
+
+
+@media only screen and (max-width:600px) {
+    #sidebar {
+        width: 30vw;
+    }
+}
