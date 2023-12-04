@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { MainPage } from "../mainPage/mainPage";
+import { StorePage } from "../storePage/ShopPage";
 
 function App() {
   const [page, setPage] = useState(1);
 
   return (
     <div className="app">
-      <MainPage />
+      {/* <MainPage /> */}
+      <StorePage />
     </div>
   );
 }

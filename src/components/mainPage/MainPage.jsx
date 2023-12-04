@@ -1,6 +1,8 @@
 import video from "../../assets/MainPage-background.mp4";
 import { Header } from "../header/Header";
 import { NavigationList } from "../navigationList/NavigationList";
+import Icon from "@mdi/react";
+import { mdiAlphaRBox } from "@mdi/js";
 import "./MainPage.css";
 
 const MainPage = () => {
@@ -42,7 +44,10 @@ const MainPage = () => {
                 id="rawg-btn"
                 target="_blank"
               >
-                R A W G API
+                <p>
+                  <Icon path={mdiAlphaRBox} size={1} />
+                  RAWG API
+                </p>
               </a>
             </div>
           </div>

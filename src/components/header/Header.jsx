@@ -1,10 +1,10 @@
-import pageLogo from "../../assets/img/pageLogo.png";
+import { BiSolidGhost } from "react-icons/bi";
 import "./Header.css";
 const Header = () => {
   return (
     <header>
       <div className="page-logo">
-        <img className="logo" src={pageLogo} alt="Logo" />
+        <BiSolidGhost size={35} />
         <h2 className="title">Game Wave</h2>
       </div>
       <div className="search">
