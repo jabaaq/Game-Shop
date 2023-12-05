@@ -4,6 +4,7 @@ import { GameCard } from "../gameCard/gameCard";
 const GamesList = () => {
   return (
     <div className="games-list">
+      <div className="page-title">Last 30 daysaaaaaaaaaaaaaaaaaaaaaaa</div>
       <ul className="games-grid">
         <li>
           <GameCard />

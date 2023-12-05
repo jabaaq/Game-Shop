@@ -8,7 +8,7 @@ const StorePage = () => {
     <div className="shop-page">
       <Navbar />
       <SidebarMenu />
-      {/* <GamesList /> */}
+      <GamesList />
     </div>
   );
 };
