@@ -46,7 +46,7 @@ const MainPage = () => {
               >
                 <p>
                   <Icon path={mdiAlphaRBox} size={1} />
-                  RAWG API
+                  RAWG
                 </p>
               </a>
             </div>

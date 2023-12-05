@@ -3,13 +3,14 @@
 
 #sidebar {
     position: fixed;
-    width: 30%;
+    width: 20%;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     display: flex;
     transition: top 0.5s ease 0s;
     object-fit: contain;
     z-index: 1;
+    background-color: rgb(15, 16, 17);
 }
 
 
