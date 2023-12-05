@@ -3,6 +3,7 @@ import { Header } from "../header/Header";
 import { NavigationList } from "../navigationList/NavigationList";
 import Icon from "@mdi/react";
 import { mdiAlphaRBox } from "@mdi/js";
+
 import "./MainPage.css";
 
 const MainPage = () => {

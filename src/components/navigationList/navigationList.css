@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 .cards {
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -32,7 +37,7 @@
     transition: 400ms;
 }
 
-.cards .card p.tip {
+.cards .card a.tip {
     font-size: 1.4em;
     font-weight: 700;
     display: flex;

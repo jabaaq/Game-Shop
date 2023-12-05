@@ -1,14 +1,22 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import { useState, useEffect } from "react";
-import "./App.css";
+
 import { MainPage } from "../mainPage/mainPage";
 import { StorePage } from "../storePage/storePage";
 
+import "./App.css";
+
 function App() {
   return (
-    <div className="app">
-      {/* <MainPage /> */}
-      <StorePage />
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/games" element={<StorePage />}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

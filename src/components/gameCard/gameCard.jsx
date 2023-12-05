@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
 import "./gameCard.css";
 
 const GameCard = () => {
   return (
-    <div className="card">
+    <motion.div
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.1 },
+      }}
+      className="card"
+    >
       <div className="card-image"></div>
       <div className="category"> Add to cart + </div>
       <div className="heading">
@@ -11,7 +18,7 @@ const GameCard = () => {
           By <span className="name">Abi</span> 4 days ago
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

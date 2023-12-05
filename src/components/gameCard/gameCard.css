@@ -14,9 +14,10 @@
     border-radius: 10px 10px 0 0;
 }
 
-.card-image:hover {
+/* 
+.card:hover {
     transform: scale(0.98);
-}
+} */
 
 .category {
     /* text-transform: uppercase; */
