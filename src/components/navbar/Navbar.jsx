@@ -6,10 +6,10 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <header id="main-header">
-      <h2>
+      <div className="header-title">
         <BiSolidGhost size={35} />
-        Game Wave
-      </h2>
+        <h2>Game Wave</h2>
+      </div>
       <div className="searchbar">
         <div className="search">
           <input
@@ -30,7 +30,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className="carticon">
+      <div className="cart-icon">
         <Icon path={mdiCartOutline} size={1.4} />
       </div>
     </header>

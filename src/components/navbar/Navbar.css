@@ -6,23 +6,43 @@
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: justify;
-    justify-content: space-between;
     height: 90px;
     gap: 20px;
     padding: 20px 40px;
     background-color: rgb(15, 16, 17);
     color: white;
     transition: top 0.5s ease 0s;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-#main-header h2 {
+.header-title {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* right: 10vw; */
+}
+
+.cart-icon {
+    margin-right: 80px;
 }
 
 @media only screen and (max-width: 600px) {
     #main-header {
         width: 100%;
+        /* justify-content: space-around; */
+        gap: 0;
+        padding: 10px 5px;
+    }
+
+    .header-title h2 {
+        position: static;
+        display: none;
+    }
+
+    .cart-icon {
+        margin-right: 0;
     }
 }

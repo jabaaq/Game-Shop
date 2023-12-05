@@ -35,7 +35,7 @@ function IconBox(props) {
       <div className="section-title">
         <h3>{h3}</h3>
       </div>
-      <motion.div whileHover={{ scale: 1.1 }} className="section-box">
+      <motion.div whileHover={{ scale: 1.05 }} className="section-box">
         <div className="iconBox">{icon}</div>
         {name}
       </motion.div>

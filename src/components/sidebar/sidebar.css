@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
 #sidebar {
     position: fixed;
     width: 20%;
-    height: 100%;
+    height: 100vh;
     background-color: #0F1011;
     font-family: 'Poppins', sans-serif;
+    /* top: 120px; */
+    display: flex;
+    transition: top 0.5s ease 0s;
+    object-fit: contain;
+
 }
+
 
 .navSection {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    font-size: 1.5vw;
     color: white;
     cursor: pointer;
 }
@@ -23,6 +28,7 @@
     display: flex;
     justify-content: flex-start;
     font-family: 'Rowdies', sans-serif;
+    margin: 0 10px;
 }
 
 .section-box {
@@ -31,12 +37,12 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 .iconBox {
-    width: 30px;
-    height: 30px;
+    width: 3vw;
+    height: 3vw;
     background-color: #2D2D2D;
     display: flex;
     justify-content: center;
@@ -54,13 +60,18 @@
 .each-section {
     display: flex;
     justify-content: flex-start;
-    margin: 0 5px;
+    /* margin: 0 5px; */
     flex-direction: column;
+    font-size: 15px;
 }
 
 
 @media only screen and (max-width:600px) {
-    #sidebar {
-        width: 30vw;
+    .each-section {
+        font-size: 2vw;
+    }
+
+    .section-box {
+        margin: 0 5px;
     }
 }
