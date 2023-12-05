@@ -14,6 +14,7 @@ a {
     flex-direction: column;
 }
 
+
 .cards .red,
 .cards .blue,
 .cards .green {
@@ -28,23 +29,17 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     text-align: center;
     height: 80px;
     width: 250px;
     border-radius: 15px;
     cursor: pointer;
     transition: 400ms;
+    gap: 8px;
+    font-size: 1.4em;
 }
 
-.cards .card a.tip {
-    font-size: 1.4em;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
+
 
 .cards .card p.second-text {
     font-size: .7em;

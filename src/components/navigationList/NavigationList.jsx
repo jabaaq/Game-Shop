@@ -10,24 +10,24 @@ const NavigationList = () => {
     <div className="cards">
       <h2>Quick Navigation</h2>
       <div className="list-items">
-        <div className="card red">
-          <Link to="/games" className="tip">
+        <Link to="/games" className="tip">
+          <div className="card red">
             <RiGameFill />
             Games
-          </Link>
-        </div>
-        <div className="card blue">
-          <Link to="/games" className="tip">
+          </div>
+        </Link>
+        <Link to="/games" className="tip">
+          <div className="card blue">
             <FaStar />
             Last 30 days
-          </Link>
-        </div>
-        <div className="card green">
-          <Link to="/games" className="tip">
+          </div>
+        </Link>
+        <Link to="/games" className="tip">
+          <div className="card green">
             <ImTrophy />
             Best of the year
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
