@@ -3,8 +3,8 @@
     display: grid;
     grid-template-columns: repeat(3, 200px);
     column-gap: 11vw;
-    row-gap: 60px;
-    margin-left: 22%;
+    row-gap: 30px;
+    margin-left: 25%;
     background-color: rgb(15, 16, 17);
     place-items: center;
 }
@@ -17,7 +17,7 @@
     margin-left: 20%;
     width: 10vw;
     z-index: 100;
-    font-size: 30px;
+    font-size: 50px;
     color: white;
     margin-bottom: 10px;
 }
@@ -48,7 +48,7 @@
     }
 
     .page-title {
-        margin-left: 30%;
+        margin-left: 20%;
     }
 }
 
@@ -56,10 +56,12 @@
     .games-grid {
         grid-template-columns: repeat(1, 300px);
         grid-template-rows: repeat(1, 320px);
+
     }
 
     .page-title {
-        font-size: 20px;
+        font-size: 30px;
+        margin-left: 35%;
     }
 }
 

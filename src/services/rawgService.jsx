@@ -1,20 +1,32 @@
 import { useHttp } from "../hook/http.hook";
 
-const useRawgService = ({ page }) => {
+const useRawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
   const _apiBase = "https://api.rawg.io/api/games?";
   const _apiKey = "key=2452c5a9aab44890a1e70379720df39e";
-  //   const _page = page;
 
-  const getGamesByPages = async () => {
-    const result = await request(`${_apiBase}${_apiKey}&page=${page}`);
-    console.log("Result from getGamesByPages:", result);
-
-    return result;
+  const getAllGames = async () => {
+    const res = await request(`${_apiBase}${_apiKey}&page=1`);
+    console.log(res.results.map(_transformGame));
+    return res.results.map(_transformGame);
   };
 
-  return { loading, error, request, clearError };
+  const getGame = async () => {
+    const res = await request(`${_apiBase}${_apiKey}&page=1`);
+    return _transformGame(res.results[0]);
+  };
+
+  const _transformGame = (game) => {
+    return {
+      id: game.id,
+      name: game.name,
+      released: game.released,
+      image: game.background_image,
+    };
+  };
+
+  return { loading, error, request, clearError, getAllGames };
 };
 
 export { useRawgService };

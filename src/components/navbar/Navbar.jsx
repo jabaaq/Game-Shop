@@ -1,15 +1,26 @@
 import Icon from "@mdi/react";
 import { mdiCartOutline } from "@mdi/js";
 import { BiSolidGhost } from "react-icons/bi";
+import { motion } from "framer-motion";
+
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <header id="main-header">
-      <div className="header-title">
-        <BiSolidGhost size={35} />
-        <h2>Game Wave</h2>
-      </div>
+      <Link to="/">
+        <motion.div
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.1 },
+          }}
+          className="header-title"
+        >
+          <BiSolidGhost size={35} />
+          <h2>Game Wave</h2>
+        </motion.div>
+      </Link>
       <div className="searchbar">
         <div className="search">
           <input

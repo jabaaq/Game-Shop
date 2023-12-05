@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import "./gameCard.css";
 
-const GameCard = () => {
+const GameCard = ({ name, released, image }) => {
   return (
     <motion.div
       whileHover={{
@@ -10,13 +10,13 @@ const GameCard = () => {
       }}
       className="card"
     >
-      <div className="card-image"></div>
-      <div className="category"> Add to cart + </div>
+      <img src={image} className="card-image" alt="Game Image" />
+
+      <div className="add-to-cart"> Add to cart + </div>
       <div className="heading">
-        A heading that must span over two lines
-        <div className="author">
-          By <span className="name">Abi</span> 4 days ago
-        </div>
+        {name}
+        <div className="released">{released}</div>
+        <div className="price">19.29</div>
       </div>
     </motion.div>
   );
