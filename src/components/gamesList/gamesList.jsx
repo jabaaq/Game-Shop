@@ -4,7 +4,7 @@ import { Spinner } from "../spinner/spinner";
 import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
 
-const GamesList = () => {
+const GamesList = ({ pageTitle, selectedApi }) => {
   const { loading, error, getAllGames } = RawgService();
   const [games, setGames] = useState([]);
 
@@ -41,7 +41,9 @@ const GamesList = () => {
 
   return (
     <div className="games-list">
-      <div className="page-title">Best of the year</div>
+      <div className="page-title">
+        {pageTitle === null ? "Games" : pageTitle}
+      </div>
       {eachGameCard}
       {spinner}
     </div>

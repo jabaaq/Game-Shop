@@ -3,9 +3,11 @@ import "./gameCard.css";
 
 const GameCard = ({ name, released, image, id }) => {
   function getRandomNumber() {
-    const arr = [14.99, 19.98, 44.98, 12.98, 2.98, 17.98, 10.98, 9.99, 15.99];
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
+    const prices = [
+      14.99, 19.98, 44.98, 12.98, 7.98, 17.98, 10.98, 9.99, 15.99,
+    ];
+    const randomIndex = Math.floor(Math.random() * prices.length);
+    return prices[randomIndex];
   }
   const randomNum = getRandomNumber();
 
