@@ -28,6 +28,7 @@ const GamesList = () => {
             name={item.name}
             released={item.released}
             image={item.image}
+            id={item.id}
           />
         </li>
       );

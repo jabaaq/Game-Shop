@@ -23,6 +23,8 @@ const RawgService = () => {
       name: game.name,
       released: game.released,
       image: game.background_image,
+      platforms: game.platforms[0].platform.name,
+      slug: game.platforms[0].platform.slug,
     };
   };
 
