@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { MainPage } from "../mainPage/mainPage";
 import { StorePage } from "../storePage/storePage";
+import { Spinner } from "../spinner/spinner";
 
 import "./App.css";
 

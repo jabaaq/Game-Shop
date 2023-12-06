@@ -4,11 +4,12 @@
     justify-content: center;
     height: 100%;
     width: 100%;
+    margin-top: 100px;
 }
 
 .dot {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 15px;
     margin-right: 10px;
     border-radius: 10px;
     background-color: #b3d4fc;
