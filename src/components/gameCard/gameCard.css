@@ -1,10 +1,10 @@
 .card {
-    width: 300px;
+    width: 325px;
     background: #202020;
-    padding: .4em;
+    /* padding: .4em; */
     border-radius: 15px;
     font-family: 'Poppins', sans-serif;
-    height: 270px;
+    height: 300px;
 }
 
 .card-image {
@@ -15,16 +15,26 @@
     object-fit: cover;
 }
 
-.price {
-    width: 100%;
-    justify-self: flex-end;
-}
+
 
 .add-to-cart {
     font-size: 0.7em;
     font-weight: 600;
     color: rgb(88, 87, 87);
-    padding: 10px 7px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.add-cart-btn {
+    border: none;
+    background-color: rgba(32, 32, 32, 0);
+    color: rgb(88, 87, 87);
+}
+
+.price {
+    font-size: 12px;
 }
 
 .category:hover {
@@ -55,6 +65,7 @@
 .name:hover {
     cursor: pointer;
 }
+
 
 
 @media only screen and (max-width: 1200px) {

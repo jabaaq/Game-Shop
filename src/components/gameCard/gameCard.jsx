@@ -12,11 +12,13 @@ const GameCard = ({ name, released, image }) => {
     >
       <img src={image} className="card-image" alt="Game Image" />
 
-      <div className="add-to-cart"> Add to cart + </div>
+      <div className="add-to-cart">
+        <button className="add-cart-btn">Add to cart +</button>
+        <p className="price">19.99$</p>
+      </div>
       <div className="heading">
         {name}
-        <div className="released">{released}</div>
-        <div className="price">19.29</div>
+        <div className="released">Released: {released}</div>
       </div>
     </motion.div>
   );

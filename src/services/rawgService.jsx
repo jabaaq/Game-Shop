@@ -1,6 +1,6 @@
 import { useHttp } from "../hook/http.hook";
 
-const useRawgService = () => {
+const RawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
   const _apiBase = "https://api.rawg.io/api/games?";
@@ -29,4 +29,4 @@ const useRawgService = () => {
   return { loading, error, request, clearError, getAllGames };
 };
 
-export { useRawgService };
+export { RawgService };

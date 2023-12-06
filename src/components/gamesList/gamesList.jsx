@@ -1,10 +1,11 @@
 import "./gamesList.css";
 import { GameCard } from "../gameCard/gameCard";
-import { useRawgService } from "../../services/rawgService";
+import { Spinner } from "../spinner/spinner";
+import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
 
 const GamesList = () => {
-  const { loading, error, getAllGames } = useRawgService();
+  const { loading, error, getAllGames } = RawgService();
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -34,12 +35,14 @@ const GamesList = () => {
     return <ul className="games-grid">{items}</ul>;
   }
 
-  const eachGameCard = renderGames(games); //
+  const eachGameCard = renderGames(games);
+  const spinner = loading ? <Spinner /> : null;
 
   return (
     <div className="games-list">
       <div className="page-title">Best of the year</div>
       {eachGameCard}
+      {spinner}
     </div>
   );
 };
