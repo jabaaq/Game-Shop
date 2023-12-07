@@ -6,9 +6,7 @@ import { motion } from "framer-motion";
 import { IoGameController } from "react-icons/io5";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { IoStatsChartSharp } from "react-icons/io5";
-
-import { useState } from "react";
-import { GamesList } from "../gamesList/gamesList";
+import { useState, useEffect } from "react";
 
 const SidebarMenu = ({ onSidebarMenuClick }) => {
   return (
@@ -21,7 +19,6 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           onSidebarMenuClick={onSidebarMenuClick}
         />
         <IconBox
-          h3={null}
           name={"Games"}
           icon={<IoGameController size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
@@ -33,7 +30,6 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           onSidebarMenuClick={onSidebarMenuClick}
         />
         <IconBox
-          h3={null}
           name={"Next month"}
           icon={<TbPlayerTrackNextFilled size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
@@ -45,7 +41,6 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           onSidebarMenuClick={onSidebarMenuClick}
         />
         <IconBox
-          h3={null}
           name={"Popular in 2022"}
           icon={<IoStatsChartSharp size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
@@ -58,6 +53,15 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
 function IconBox(props) {
   const { h3 = null, name, icon, onSidebarMenuClick } = props;
 
+  const [isSelected, setIsSelected] = useState("");
+
+  const handleSelect = (selectedItem) => {
+    document.querySelectorAll(".iconBox.selectedIconBox").forEach((item) => {
+      item.classList.remove("selectedIconBox");
+    });
+    setIsSelected(selectedItem);
+  };
+
   return (
     <div className="navSection">
       <div className={h3 === null ? "no-title" : "section-title"}>
@@ -68,11 +72,18 @@ function IconBox(props) {
           onClick={(e) => {
             e.preventDefault();
             onSidebarMenuClick(name, "#");
+            handleSelect(name);
           }}
           href="#"
-          className={`opened-page ${h3 === null ? "without-title" : null}`}
+          className={`opened-page ${h3 === null ? "without-title" : null} `}
         >
-          <div className="iconBox">{icon}</div>
+          <div
+            className={`iconBox ${
+              isSelected === name ? "selectedIconBox" : ""
+            }`}
+          >
+            {icon}
+          </div>
           {name}
         </a>
       </motion.div>

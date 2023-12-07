@@ -62,6 +62,11 @@
     transition: background-color 0.3s ease;
 }
 
+.selectedIconBox {
+    background-color: white;
+    color: #2D2D2D;
+}
+
 .navSection :hover .iconBox {
     background-color: white;
     color: #0F1011;
