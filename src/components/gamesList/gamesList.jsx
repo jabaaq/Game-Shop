@@ -17,7 +17,7 @@ const GamesList = ({ pageTitle, selectedApi }) => {
   };
 
   const onGameListLoaded = (newGames) => {
-    setGames((games) => [...games, ...newGames]);
+    setGames(() => [...newGames]);
   };
 
   function renderGames(arr) {

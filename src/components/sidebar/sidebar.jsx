@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import { GetUrl } from "../getUrl/getUrl";
 import { FaStar } from "react-icons/fa6";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoMdTrophy } from "react-icons/io";
@@ -9,6 +10,8 @@ import { IoStatsChartSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
 
 const SidebarMenu = ({ onSidebarMenuClick }) => {
+  const { popular2022, bestOfTheYear } = GetUrl();
+
   return (
     <aside id="sidebar">
       <div className="each-section">
@@ -39,14 +42,13 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           name={"Best of the year"}
           icon={<IoMdTrophy size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={bestOfTheYear}
         />
         <IconBox
-          name={"Popular in 2023"}
+          name={"Popular in 2022"}
           icon={<IoStatsChartSharp size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
-          apiKey={
-            "https://api.rawg.io/api/games?key=2452c5a9aab44890a1e70379720df39e&dates=2023-01-01,2023-12-30&platforms=18,1,7"
-          }
+          apiKey={popular2022}
         />
       </div>
     </aside>
