@@ -20,7 +20,7 @@ const RawgService = () => {
   const _transformGame = (game) => {
     return {
       id: game.id,
-      name: game.name,
+      name: game.name.length >= 80 ? game.name.slice(0, 80) + "..." : game.name,
       released: game.released,
       image: game.background_image,
       platforms: game.platforms[0].platform.name,

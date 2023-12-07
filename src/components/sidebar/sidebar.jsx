@@ -7,10 +7,22 @@ import { motion } from "framer-motion";
 import { IoGameController } from "react-icons/io5";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { IoStatsChartSharp } from "react-icons/io5";
+import { BiSolidMedal } from "react-icons/bi";
+import { FaCrown } from "react-icons/fa";
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
+
 import { useState, useEffect } from "react";
 
 const SidebarMenu = ({ onSidebarMenuClick }) => {
-  const { popular2022, bestOfTheYear } = GetUrl();
+  const {
+    popular2022,
+    bestOfTheYear,
+    last30Days,
+    thisWeek,
+    allTimeTop,
+    random,
+    soon,
+  } = GetUrl();
 
   return (
     <aside id="sidebar">
@@ -22,28 +34,38 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           onSidebarMenuClick={onSidebarMenuClick}
         />
         <IconBox
-          name={"Games"}
-          icon={<IoGameController size={20} />}
+          name={"Random"}
+          icon={<GiPerspectiveDiceSixFacesRandom size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={random}
         />
         <IconBox
           h3={"New Releases"}
           name={"Last 30 days"}
           icon={<FaStar size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={last30Days}
         />
         <IconBox
-          name={"Next month"}
+          name={"Soon"}
           icon={<TbPlayerTrackNextFilled size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={soon}
         />
         <IconBox
           h3={"Top"}
+          name={"All time top"}
+          icon={<FaCrown size={20} />}
+          onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={allTimeTop}
+        />
+        <IconBox
           name={"Best of the year"}
-          icon={<IoMdTrophy size={20} />}
+          icon={<BiSolidMedal size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
           apiKey={bestOfTheYear}
         />
+
         <IconBox
           name={"Popular in 2022"}
           icon={<IoStatsChartSharp size={20} />}
