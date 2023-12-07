@@ -41,9 +41,12 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
           onSidebarMenuClick={onSidebarMenuClick}
         />
         <IconBox
-          name={"Popular in 2022"}
+          name={"Popular in 2023"}
           icon={<IoStatsChartSharp size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
+          apiKey={
+            "https://api.rawg.io/api/games?key=2452c5a9aab44890a1e70379720df39e&dates=2023-01-01,2023-12-30&platforms=18,1,7"
+          }
         />
       </div>
     </aside>
@@ -51,7 +54,7 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
 };
 
 function IconBox(props) {
-  const { h3 = null, name, icon, onSidebarMenuClick } = props;
+  const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
 
   const [isSelected, setIsSelected] = useState("");
 
@@ -71,7 +74,7 @@ function IconBox(props) {
         <a
           onClick={(e) => {
             e.preventDefault();
-            onSidebarMenuClick(name, "#");
+            onSidebarMenuClick(name, apiKey);
             handleSelect(name);
           }}
           href="#"

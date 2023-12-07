@@ -10,10 +10,10 @@ const GamesList = ({ pageTitle, selectedApi }) => {
 
   useEffect(() => {
     onRequest();
-  }, []);
+  }, [selectedApi]);
 
   const onRequest = () => {
-    getAllGames().then(onGameListLoaded);
+    getAllGames(selectedApi).then(onGameListLoaded);
   };
 
   const onGameListLoaded = (newGames) => {
