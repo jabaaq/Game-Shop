@@ -7,21 +7,16 @@ import { useState } from "react";
 const StorePage = () => {
   const [pageTitle, setPageTitle] = useState(null);
   const [selectedApi, setSelectedApi] = useState(null);
-  const [selectedSidebarItem, setSelectedSidebarItem] = useState(null);
 
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);
     setSelectedApi(api);
-    setSelectedSidebarItem(title);
   };
 
   return (
     <div className="shop-page">
       <Navbar />
-      <SidebarMenu
-        onSidebarMenuClick={handleSidebarClick}
-        selectedSidebarItem={selectedSidebarItem}
-      />
+      <SidebarMenu onSidebarMenuClick={handleSidebarClick} />
       <GamesList pageTitle={pageTitle} selectedApi={selectedApi} />
     </div>
   );

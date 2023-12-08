@@ -1,5 +1,5 @@
 import { useHttp } from "../hook/http.hook";
-//this year: https://api.rawg.io/api/games?key=2452c5a9aab44890a1e70379720df39e&dates=2023-01-01,2023-12-30&platforms=18,1,7
+// genres https://api.rawg.io/api/genres?key=2452c5a9aab44890a1e70379720df39e
 const RawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
