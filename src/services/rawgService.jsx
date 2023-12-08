@@ -25,6 +25,7 @@ const RawgService = () => {
       image: game.background_image,
       platforms: game.platforms[0].platform.name,
       slug: game.platforms[0].platform.slug,
+      rating: game.rating,
     };
   };
 

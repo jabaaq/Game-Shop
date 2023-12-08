@@ -35,6 +35,7 @@ const GamesList = ({ pageTitle, selectedApi, loadedGame }) => {
             released={item.released}
             image={item.image}
             id={item.id}
+            rating={item.rating}
           />
         </li>
       );
@@ -47,9 +48,7 @@ const GamesList = ({ pageTitle, selectedApi, loadedGame }) => {
 
   return (
     <div className="games-list">
-      <div className="page-title">
-        {pageTitle === null ? "Random" : pageTitle}
-      </div>
+      <div className="page-title">{pageTitle}</div>
       {eachGameCard}
       {spinner}
     </div>

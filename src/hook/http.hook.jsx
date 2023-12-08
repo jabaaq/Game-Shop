@@ -20,7 +20,7 @@ const useHttp = () => {
           throw new error(`Couldn't fetch ${url}, status: ${response.status}`);
         }
 
-        const data = response.json();
+        const data = await response.json();
         setLoading(false);
         return data;
       } catch (error) {

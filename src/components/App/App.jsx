@@ -12,7 +12,6 @@ function App() {
 
   const handleLoadedGames = (games) => {
     setLoadedGames(games);
-    console.log(games);
   };
 
   return (

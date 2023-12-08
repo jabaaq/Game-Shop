@@ -1,15 +1,19 @@
 import { motion } from "framer-motion";
 import "./gameCard.css";
 
-const GameCard = ({ name, released, image, id }) => {
-  function getRandomNumber() {
-    const prices = [
-      14.99, 19.98, 44.98, 12.98, 7.98, 17.98, 10.98, 9.99, 15.99,
-    ];
-    const randomIndex = Math.floor(Math.random() * prices.length);
-    return prices[randomIndex];
+const GameCard = ({ name, released, image, id, rating }) => {
+  function generatePriceBasedOnRating(rating) {
+    const finalPrice = 4.99;
+    const averageRating = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
+    for (let i = 0; i < averageRating.length; i++) {
+      if (rating <= averageRating[i]) {
+        return (finalPrice + i * 5).toFixed(2);
+      }
+    }
   }
-  const randomNum = getRandomNumber();
+
+  const gamePrice = generatePriceBasedOnRating(rating);
 
   return (
     <motion.div
@@ -24,7 +28,7 @@ const GameCard = ({ name, released, image, id }) => {
 
       <div className="add-to-cart">
         <button className="add-cart-btn">Add to cart +</button>
-        <p className="price">{randomNum}$</p>
+        <p className="price">{gamePrice}$</p>
       </div>
       <div className="heading">
         {name}
