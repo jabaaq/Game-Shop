@@ -5,9 +5,8 @@ import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
 import { GetUrl } from "../getUrl/getUrl";
 
-const GamesList = ({ pageTitle, selectedApi }) => {
+const GamesList = ({ pageTitle, selectedApi, loadedGame }) => {
   const { loading, error, getAllGames } = RawgService();
-  const { allTimeTop } = GetUrl();
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -22,6 +21,10 @@ const GamesList = ({ pageTitle, selectedApi }) => {
   const onGameListLoaded = (newGames) => {
     setGames(() => [...newGames]);
   };
+
+  useEffect(() => {
+    getAllGames(loadedGame).then(onGameListLoaded);
+  }, []);
 
   function renderGames(arr) {
     const items = arr.map((item, i) => {
@@ -47,7 +50,6 @@ const GamesList = ({ pageTitle, selectedApi }) => {
       <div className="page-title">
         {pageTitle === null ? "Random" : pageTitle}
       </div>
-
       {eachGameCard}
       {spinner}
     </div>

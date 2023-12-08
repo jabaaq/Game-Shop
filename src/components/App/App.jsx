@@ -8,12 +8,25 @@ import { StorePage } from "../storePage/storePage";
 import "./App.css";
 
 function App() {
+  const [loadedGames, setLoadedGames] = useState(null);
+
+  const handleLoadedGames = (games) => {
+    setLoadedGames(games);
+    console.log(games);
+  };
+
   return (
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<MainPage />}></Route>
-          <Route path="/games" element={<StorePage />}></Route>
+          <Route
+            path="/"
+            element={<MainPage handleLoadedGames={handleLoadedGames} />}
+          ></Route>
+          <Route
+            path="/games"
+            element={<StorePage loadedGames={loadedGames} />}
+          ></Route>
         </Routes>
       </div>
     </Router>

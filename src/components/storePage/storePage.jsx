@@ -4,7 +4,7 @@ import { GamesList } from "../gamesList/gamesList";
 import "./storePage.css";
 import { useState } from "react";
 
-const StorePage = () => {
+const StorePage = ({ loadedGames }) => {
   const [pageTitle, setPageTitle] = useState(null);
   const [selectedApi, setSelectedApi] = useState(null);
 
@@ -17,7 +17,11 @@ const StorePage = () => {
     <div className="shop-page">
       <Navbar />
       <SidebarMenu onSidebarMenuClick={handleSidebarClick} />
-      <GamesList pageTitle={pageTitle} selectedApi={selectedApi} />
+      <GamesList
+        pageTitle={pageTitle}
+        selectedApi={selectedApi}
+        loadedGame={loadedGames}
+      />
     </div>
   );
 };

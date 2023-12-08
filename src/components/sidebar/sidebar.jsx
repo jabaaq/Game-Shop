@@ -14,15 +14,8 @@ import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 import { useState, useEffect } from "react";
 
 const SidebarMenu = ({ onSidebarMenuClick }) => {
-  const {
-    popular2022,
-    bestOfTheYear,
-    last30Days,
-    thisWeek,
-    allTimeTop,
-    random,
-    soon,
-  } = GetUrl();
+  const { popular2022, bestOfTheYear, last30Days, allTimeTop, random, soon } =
+    GetUrl();
 
   return (
     <aside id="sidebar">
