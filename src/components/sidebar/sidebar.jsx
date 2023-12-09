@@ -71,7 +71,7 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
 };
 
 function IconBox(props) {
-  const [isSelected, setIsSelected] = useState("");
+  const [isSelected, setIsSelected] = useState(null);
 
   const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
 
@@ -80,7 +80,19 @@ function IconBox(props) {
       item.classList.remove("selectedIconBox");
     });
     setIsSelected(selectedItem);
+    localStorage.setItem("selectedMenu", selectedItem);
   };
+
+  useEffect(() => {
+    const lastSelectedMenu = localStorage.getItem("selectedMenu");
+
+    // If a menu was previously selected, set it as the initial selected item
+    if (lastSelectedMenu) {
+      setIsSelected(lastSelectedMenu);
+    }
+
+    onSidebarMenuClick(lastSelectedMenu);
+  }, []);
 
   return (
     <div className="navSection">
