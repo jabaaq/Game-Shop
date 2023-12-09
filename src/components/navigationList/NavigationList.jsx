@@ -6,8 +6,8 @@ import { ImTrophy } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { GetUrl } from "../getUrl/getUrl";
 
-const NavigationList = ({ handleLoadedGames }) => {
-  const { random, last30Days, allTimeTop } = GetUrl();
+const NavigationList = ({ onSidebarMenuClick }) => {
+  const { random, allTimeTop, last30Days } = GetUrl();
 
   return (
     <div className="cards">
@@ -16,7 +16,7 @@ const NavigationList = ({ handleLoadedGames }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={() => handleLoadedGames(random)}
+          onClick={onSidebarMenuClick("Random", random)}
         >
           <div className="card red">
             <RiGameFill />
@@ -26,7 +26,7 @@ const NavigationList = ({ handleLoadedGames }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={() => handleLoadedGames(last30Days)}
+          onClick={onSidebarMenuClick("Last 30 days", last30Days)}
         >
           <div className="card blue">
             <FaStar />
@@ -36,7 +36,7 @@ const NavigationList = ({ handleLoadedGames }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={() => handleLoadedGames(allTimeTop)}
+          onClick={onSidebarMenuClick("All time top", allTimeTop)}
         >
           <div className="card green">
             <ImTrophy />

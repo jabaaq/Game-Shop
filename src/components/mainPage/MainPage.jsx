@@ -6,7 +6,7 @@ import { mdiAlphaRBox } from "@mdi/js";
 
 import "./MainPage.css";
 
-const MainPage = ({ handleLoadedGames }) => {
+const MainPage = ({ onSidebarMenuClick }) => {
   return (
     <div className="page">
       <Header />
@@ -54,7 +54,7 @@ const MainPage = ({ handleLoadedGames }) => {
           </div>
         </div>
         <div className="right-page">
-          <NavigationList handleLoadedGames={handleLoadedGames} />
+          <NavigationList onSidebarMenuClick={onSidebarMenuClick} />
         </div>
       </div>
       <video src={video} autoPlay loop muted></video>

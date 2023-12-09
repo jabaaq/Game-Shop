@@ -7,11 +7,13 @@ import { StorePage } from "../storePage/storePage";
 
 import "./App.css";
 
-function App() {
-  const [loadedGames, setLoadedGames] = useState(null);
+const App = () => {
+  const [pageTitle, setPageTitle] = useState(null);
+  const [selectedApi, setSelectedApi] = useState(null);
 
-  const handleLoadedGames = (games) => {
-    setLoadedGames(games);
+  const handleSidebarClick = (title, api) => {
+    setPageTitle(title);
+    setSelectedApi(api);
   };
 
   return (
@@ -20,16 +22,22 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<MainPage handleLoadedGames={handleLoadedGames} />}
+            element={<MainPage onSidebarMenuClick={handleSidebarClick} />}
           ></Route>
           <Route
             path="/games"
-            element={<StorePage loadedGames={loadedGames} />}
+            element={
+              <StorePage
+                onSidebarMenuClick={handleSidebarClick}
+                pageTitle={pageTitle}
+                selectedApi={selectedApi}
+              />
+            }
           ></Route>
         </Routes>
       </div>
     </Router>
   );
-}
+};
 
 export default App;

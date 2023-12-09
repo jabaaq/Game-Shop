@@ -3,12 +3,12 @@ import "./gameCard.css";
 
 const GameCard = ({ name, released, image, id, rating }) => {
   function generatePriceBasedOnRating(rating) {
-    const finalPrice = 4.99;
+    const averagePrice = 4.99;
     const averageRating = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
 
     for (let i = 0; i < averageRating.length; i++) {
       if (rating <= averageRating[i]) {
-        return (finalPrice + i * 5).toFixed(2);
+        return (averagePrice + i * 5).toFixed(2);
       }
     }
   }

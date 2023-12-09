@@ -4,24 +4,12 @@ import { GamesList } from "../gamesList/gamesList";
 import "./storePage.css";
 import { useState } from "react";
 
-const StorePage = ({ loadedGames }) => {
-  const [pageTitle, setPageTitle] = useState(null);
-  const [selectedApi, setSelectedApi] = useState(null);
-
-  const handleSidebarClick = (title, api) => {
-    setPageTitle(title);
-    setSelectedApi(api);
-  };
-
+const StorePage = ({ onSidebarMenuClick, pageTitle, selectedApi }) => {
   return (
     <div className="shop-page">
       <Navbar />
-      <SidebarMenu onSidebarMenuClick={handleSidebarClick} />
-      <GamesList
-        pageTitle={pageTitle}
-        selectedApi={selectedApi}
-        loadedGame={loadedGames}
-      />
+      <SidebarMenu onSidebarMenuClick={onSidebarMenuClick} />
+      <GamesList pageTitle={pageTitle} selectedApi={selectedApi} />
     </div>
   );
 };

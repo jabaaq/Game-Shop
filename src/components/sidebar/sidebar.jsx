@@ -11,7 +11,7 @@ import { BiSolidMedal } from "react-icons/bi";
 import { FaCrown } from "react-icons/fa";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const SidebarMenu = ({ onSidebarMenuClick }) => {
   const { popular2022, bestOfTheYear, last30Days, allTimeTop, random, soon } =
@@ -71,9 +71,9 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
 };
 
 function IconBox(props) {
-  const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
-
   const [isSelected, setIsSelected] = useState("");
+
+  const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
 
   const handleSelect = (selectedItem) => {
     document.querySelectorAll(".iconBox.selectedIconBox").forEach((item) => {
