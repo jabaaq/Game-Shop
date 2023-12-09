@@ -16,7 +16,7 @@ const NavigationList = ({ onSidebarMenuClick }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={onSidebarMenuClick("Random", random)}
+          onClick={() => onSidebarMenuClick("Random", random)}
         >
           <div className="card red">
             <RiGameFill />
@@ -26,7 +26,7 @@ const NavigationList = ({ onSidebarMenuClick }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={onSidebarMenuClick("Last 30 days", last30Days)}
+          onClick={() => onSidebarMenuClick("Last 30 days", last30Days)}
         >
           <div className="card blue">
             <FaStar />
@@ -36,7 +36,7 @@ const NavigationList = ({ onSidebarMenuClick }) => {
         <Link
           to="/games"
           className="tip"
-          onClick={onSidebarMenuClick("All time top", allTimeTop)}
+          onClick={() => onSidebarMenuClick("All time top", allTimeTop)}
         >
           <div className="card green">
             <ImTrophy />
