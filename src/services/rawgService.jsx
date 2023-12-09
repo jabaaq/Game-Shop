@@ -1,17 +1,15 @@
 import { useHttp } from "../hook/http.hook";
-// genres https://api.rawg.io/api/genres?key=2452c5a9aab44890a1e70379720df39e
+import { _apiKey } from "../apiKey";
 const RawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
   const _apiBase = "https://api.rawg.io/api/games?";
-  const _apiKey = "key=2452c5a9aab44890a1e70379720df39e";
 
   const getAllGames = async (selectedApi = `${_apiBase}${_apiKey}&page=1`) => {
     const res = await request(selectedApi);
     console.log(res.results.map(_transformGame));
     return res.results.map(_transformGame);
   };
-
   const getGame = async () => {
     const res = await request(`${_apiBase}${_apiKey}&page=1`);
     return _transformGame(res.results[0]);
