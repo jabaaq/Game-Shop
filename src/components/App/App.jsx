@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import { MainPage } from "../mainPage/mainPage";
 import { StorePage } from "../storePage/storePage";
+import { CartModal } from "../cartModal/cartModal";
 
 import "./App.css";
 
@@ -15,7 +16,7 @@ const App = () => {
     setPageTitle(title);
     setSelectedApi(api);
   };
-
+  // localStorage.removeItem("selectedGames");
   return (
     <Router>
       <div className="app">
@@ -35,6 +36,7 @@ const App = () => {
             }
           ></Route>
         </Routes>
+        {/* <CartModal /> */}
       </div>
     </Router>
   );

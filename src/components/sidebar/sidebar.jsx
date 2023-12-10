@@ -75,16 +75,23 @@ function IconBox(props) {
 
   const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
 
-  const handleSelect = (selectedItem) => {
+  const handleSelect = (selectedItem, selectedApi) => {
     document.querySelectorAll(".iconBox.selectedIconBox").forEach((item) => {
       item.classList.remove("selectedIconBox");
     });
     setIsSelected(selectedItem);
-    localStorage.setItem("selectedMenu", selectedItem);
+
+    const savedData = {
+      selectedItem: selectedItem,
+      selectedApi: selectedApi,
+    };
+
+    localStorage.setItem("savedMenu", savedData.selectedItem);
+    localStorage.setItem("savedGames", JSON.stringify(savedData.selectedApi));
   };
 
   useEffect(() => {
-    const lastSelectedMenu = localStorage.getItem("selectedMenu");
+    const lastSelectedMenu = localStorage.getItem("savedMenu");
 
     // If a menu was previously selected, set it as the initial selected item
     if (lastSelectedMenu) {
@@ -104,7 +111,7 @@ function IconBox(props) {
           onClick={(e) => {
             e.preventDefault();
             onSidebarMenuClick(name, apiKey);
-            handleSelect(name);
+            handleSelect(name, apiKey);
           }}
           href="#"
           className={`opened-page ${h3 === null ? "without-title" : null} `}

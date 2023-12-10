@@ -16,6 +16,13 @@ const GamesList = ({ pageTitle, selectedApi }) => {
     getAllGames(selectedApi).then(onGameListLoaded);
   };
 
+  useEffect(() => {
+    const lastSelectedGames = localStorage.getItem("savedGames");
+    if (lastSelectedGames) {
+      getAllGames(JSON.parse(lastSelectedGames)).then(onGameListLoaded);
+    }
+  }, []);
+
   const onGameListLoaded = (newGames) => {
     setGames(() => [...newGames]);
   };
