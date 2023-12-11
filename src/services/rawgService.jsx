@@ -4,15 +4,24 @@ const RawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
   const _apiBase = "https://api.rawg.io/api/games?";
+  const _gameInfo = `https://api.rawg.io/api/games/3498?${_apiKey}`;
 
   const getAllGames = async (selectedApi = `${_apiBase}${_apiKey}&page=1`) => {
     const res = await request(selectedApi);
     console.log(res.results.map(_transformGame));
     return res.results.map(_transformGame);
   };
-  const getGame = async () => {
-    const res = await request(`${_apiBase}${_apiKey}&page=1`);
-    return _transformGame(res.results[0]);
+  const getGameData = async (id) => {
+    const res = await request(`https://api.rawg.io/api/games/${id}?${_apiKey}`);
+    console.log(res);
+    return _transformGameDetails(res);
+  };
+
+  const _transformGameDetails = (game) => {
+    return {
+      name: game.name,
+      description: game.description_raw,
+    };
   };
 
   const _transformGame = (game) => {
@@ -27,7 +36,7 @@ const RawgService = () => {
     };
   };
 
-  return { loading, error, request, clearError, getAllGames };
+  return { loading, error, request, clearError, getAllGames, getGameData };
 };
 
 export { RawgService };

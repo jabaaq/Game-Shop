@@ -12,10 +12,16 @@ import "./App.css";
 const App = () => {
   const [pageTitle, setPageTitle] = useState(null);
   const [selectedApi, setSelectedApi] = useState(null);
+  const [selectedGameId, setSelectedGameId] = useState(null);
 
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);
     setSelectedApi(api);
+  };
+
+  const handleGetId = (id) => {
+    setSelectedGameId(id);
+    console.log(id);
   };
 
   return (
@@ -33,10 +39,14 @@ const App = () => {
                 onSidebarMenuClick={handleSidebarClick}
                 pageTitle={pageTitle}
                 selectedApi={selectedApi}
+                handleGetId={handleGetId}
               />
             }
           ></Route>
-          <Route path="/games/game" element={<GameDetails />}></Route>
+          <Route
+            path="/games/game"
+            element={<GameDetails selectedGameId={selectedGameId} />}
+          ></Route>
         </Routes>
 
         {/* <CartModal /> */}
