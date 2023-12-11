@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
 import "./gameCard.css";
+
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const GameCard = ({ name, released, image, id, rating }) => {
   function generatePriceBasedOnRating(rating) {
@@ -24,16 +26,18 @@ const GameCard = ({ name, released, image, id, rating }) => {
       }}
       className="card"
     >
-      <img src={image} className="card-image" alt="Game Image" />
+      <Link to={"/games/game"}>
+        <img src={image} className="card-image" alt="Game Image" />
 
-      <div className="add-to-cart">
-        <button className="add-cart-btn">Add to cart +</button>
-        <p className="price">{gamePrice}$</p>
-      </div>
-      <div className="heading">
-        {name}
-        <div className="released">Released: {released}</div>
-      </div>
+        <div className="add-to-cart">
+          <button className="add-cart-btn">Add to cart +</button>
+          <p className="price">{gamePrice}$</p>
+        </div>
+        <div className="heading">
+          {name}
+          <div className="released">Released: {released}</div>
+        </div>
+      </Link>
     </motion.div>
   );
 };
