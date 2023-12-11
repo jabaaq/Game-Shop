@@ -4,7 +4,6 @@ import { FaStar } from "react-icons/fa6";
 import { CgMenuGridO } from "react-icons/cg";
 import { IoMdTrophy } from "react-icons/io";
 import { motion } from "framer-motion";
-import { IoGameController } from "react-icons/io5";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { BiSolidMedal } from "react-icons/bi";
@@ -21,12 +20,7 @@ const SidebarMenu = ({ onSidebarMenuClick }) => {
     <aside id="sidebar">
       <div className="each-section">
         <IconBox
-          h3={"Your Games"}
-          name={"Added Games"}
-          icon={<CgMenuGridO size={20} />}
-          onSidebarMenuClick={onSidebarMenuClick}
-        />
-        <IconBox
+          h3={"Games"}
           name={"Random"}
           icon={<GiPerspectiveDiceSixFacesRandom size={20} />}
           onSidebarMenuClick={onSidebarMenuClick}
@@ -97,7 +91,6 @@ function IconBox(props) {
     if (lastSelectedMenu) {
       setIsSelected(lastSelectedMenu);
     }
-
     onSidebarMenuClick(lastSelectedMenu);
   }, []);
 

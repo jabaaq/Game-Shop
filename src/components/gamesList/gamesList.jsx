@@ -9,7 +9,10 @@ const GamesList = ({ pageTitle, selectedApi }) => {
 
   useEffect(() => {
     setGames([]);
-    onRequest();
+
+    if (selectedApi) {
+      onRequest();
+    }
   }, [selectedApi]);
 
   const onRequest = () => {
@@ -21,7 +24,7 @@ const GamesList = ({ pageTitle, selectedApi }) => {
     if (lastSelectedGames) {
       getAllGames(JSON.parse(lastSelectedGames)).then(onGameListLoaded);
     }
-  }, []);
+  }, [pageTitle]);
 
   const onGameListLoaded = (newGames) => {
     setGames(() => [...newGames]);
