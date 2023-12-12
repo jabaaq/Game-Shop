@@ -13,14 +13,35 @@ const RawgService = () => {
   };
   const getGameData = async (id) => {
     const res = await request(`https://api.rawg.io/api/games/${id}?${_apiKey}`);
-    console.log(res);
+    console.log(_transformGameDetails(res));
     return _transformGameDetails(res);
+  };
+  const getGameScreenshots = async (id) => {
+    const res = await request(
+      `https://api.rawg.io/api/games/${id}/screenshots?${_apiKey}`
+    );
+    console.log(_transformGameScreenshots(res));
+    return _transformGameScreenshots(res);
+  };
+
+  const _transformGameScreenshots = (game) => {
+    return {
+      screenshots: game.results.map((screenshot) => screenshot.image),
+    };
   };
 
   const _transformGameDetails = (game) => {
     return {
       name: game.name,
       description: game.description_raw,
+      rating: game.rating,
+      released: game.released,
+      genres: game.genres.map((genre) => genre.name).join(", "),
+      website: game.website,
+      developers: game.developers.map((dev) => dev.name).join(", "),
+      publishers: game.publishers
+        .map((publishers) => publishers.name)
+        .join(", "),
     };
   };
 
@@ -36,7 +57,15 @@ const RawgService = () => {
     };
   };
 
-  return { loading, error, request, clearError, getAllGames, getGameData };
+  return {
+    loading,
+    error,
+    request,
+    clearError,
+    getAllGames,
+    getGameData,
+    getGameScreenshots,
+  };
 };
 
 export { RawgService };

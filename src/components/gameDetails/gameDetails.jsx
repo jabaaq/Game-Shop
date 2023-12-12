@@ -18,35 +18,53 @@ import { useEffect, useState } from "react";
 
 const GameDetails = ({ selectedGameId }) => {
   const [selectedGame, setSelectedGame] = useState({});
-  const { loading, getGameData } = RawgService();
+  const [gameScreenshots, setGameScreenshots] = useState({});
+  const { loading, getGameData, getGameScreenshots } = RawgService();
 
   //This is to automatically send data when the page is opened
   useEffect(() => {
-    onRequest();
-  }, []);
+    if (selectedGameId) {
+      onRequest();
+    }
+  }, [selectedGameId]);
 
   const onRequest = () => {
-    console.log("Sended the data");
     getGameData(selectedGameId).then(onGameLoaded);
+    getGameScreenshots(selectedGameId).then((res) => {
+      setGameScreenshots(res);
+    });
   };
 
   const onGameLoaded = (gameId) => {
     setSelectedGame(gameId);
   };
 
-  const spinner = loading ? <Spinner /> : null;
-  const content = <View game={selectedGame} />;
+  const spinner = <Spinner />;
+  const content = <View game={selectedGame} screenshots={gameScreenshots} />;
   return (
     <div className="gameDetails">
       <Header />
-      {content}
-      {/* {spinner} */}
+      {loading ? spinner : content}
     </div>
   );
 };
 
-const View = ({ game }) => {
-  const { name, description } = game;
+const View = ({ game, screenshots }) => {
+  const {
+    name,
+    description,
+    rating,
+    released,
+    genres,
+    website,
+    developers,
+    publishers,
+  } = game;
+
+  const screenshotsArray = screenshots.screenshots || [];
+
+  // Now 'screenshotsArray' contains the array of URLs
+  console.log(screenshotsArray);
 
   return (
     <div className="gameDetails__container">
@@ -60,25 +78,37 @@ const View = ({ game }) => {
       </div>
       <div className="details-content">
         <div className="game-screenshots">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={30}
-            loop={true}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-          >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
+          <>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {screenshotsArray.map((screenshot, i) => (
+                <SwiperSlide key={i}>
+                  <img src={screenshot} alt={`Game screenshot ${i}`} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </>
         </div>
         <div className="game-details">
           <div className="description-box">
-            <AccordionTable description={description} />
+            <AccordionTable
+              description={description}
+              rating={rating}
+              released={released}
+              genres={genres}
+              website={website}
+              developers={developers}
+              publishers={publishers}
+            />
           </div>
         </div>
       </div>

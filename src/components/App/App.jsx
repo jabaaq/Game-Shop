@@ -21,7 +21,6 @@ const App = () => {
 
   const handleGetId = (id) => {
     setSelectedGameId(id);
-    console.log(id);
   };
 
   return (

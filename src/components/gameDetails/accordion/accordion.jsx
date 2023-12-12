@@ -1,7 +1,16 @@
 import "./accordion.css";
 import { FaAngleDown } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
-const AccordionTable = ({ description }) => {
+const AccordionTable = ({
+  description,
+  rating,
+  released,
+  genres,
+  website,
+  developers,
+  publishers,
+}) => {
   return (
     <section className="accordion">
       <div className="tab">
@@ -9,7 +18,9 @@ const AccordionTable = ({ description }) => {
         <label htmlFor="cb1" className="tab__label">
           <h1>Description</h1>
         </label>
-        <div className="tab__content">{description}</div>
+        <div className="tab__content">
+          <div className="tab__content-inner">{description}</div>
+        </div>
       </div>
       <div className="tab">
         <input type="checkbox" name="accordion-1" id="cb2" />
@@ -21,15 +32,17 @@ const AccordionTable = ({ description }) => {
         <div className="tab__content">
           <p>
             Website:{" "}
-            <a href="#">
-              https://www.ubisoft.com/en-gb/game/avatar-frontiers-of-pandora
+            <a target="_blank" href={website}>
+              {website}{" "}
             </a>
           </p>
-          <p>Released: 2023/12/07</p>
-          <p> Genres: Action, Adventure</p>
-          <p> Platforms: PC, PlayStation, Xbox</p>
-          <p>Developers: Massive Entertainment </p>
-          <p> Publishers: Ubisoft Entertainment</p>
+          <p>Released: {released}</p>
+          <p>Genres: {genres}</p>
+          <p>
+            Rating: {rating} <FaStar />{" "}
+          </p>
+          <p>Developers: {developers} </p>
+          <p>Publishers: {publishers}</p>
         </div>
       </div>
     </section>
