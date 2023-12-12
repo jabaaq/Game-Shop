@@ -7,16 +7,19 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Header } from "../header/Header";
+import { Navbar } from "../navBar/NavBar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import AccordionTable from "./accordion/accordion";
 import { RawgService } from "../../services/rawgService";
 import { Spinner } from "../spinner/spinner";
+import { Link } from "react-router-dom";
 
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 
 const GameDetails = ({ selectedGameId }) => {
+  let storedGame = localStorage.getItem("selectedGame");
+  let storedGameScreenshots = localStorage.getItem("gameScreenshots");
   const [selectedGame, setSelectedGame] = useState({});
   const [gameScreenshots, setGameScreenshots] = useState({});
   const { loading, getGameData, getGameScreenshots } = RawgService();
@@ -25,6 +28,9 @@ const GameDetails = ({ selectedGameId }) => {
   useEffect(() => {
     if (selectedGameId) {
       onRequest();
+    } else {
+      setSelectedGame(JSON.parse(storedGame));
+      setGameScreenshots(JSON.parse(storedGameScreenshots));
     }
   }, [selectedGameId]);
 
@@ -32,18 +38,21 @@ const GameDetails = ({ selectedGameId }) => {
     getGameData(selectedGameId).then(onGameLoaded);
     getGameScreenshots(selectedGameId).then((res) => {
       setGameScreenshots(res);
+      localStorage.setItem("gameScreenshots", JSON.stringify(res));
     });
   };
 
   const onGameLoaded = (gameId) => {
     setSelectedGame(gameId);
+
+    localStorage.setItem("selectedGame", JSON.stringify(gameId));
   };
 
   const spinner = <Spinner />;
   const content = <View game={selectedGame} screenshots={gameScreenshots} />;
   return (
     <div className="gameDetails">
-      <Header />
+      <Navbar />
       {loading ? spinner : content}
     </div>
   );
@@ -61,16 +70,15 @@ const View = ({ game, screenshots }) => {
     publishers,
   } = game;
 
-  const screenshotsArray = screenshots.screenshots || [];
-
-  // Now 'screenshotsArray' contains the array of URLs
-  console.log(screenshotsArray);
+  const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.
 
   return (
     <div className="gameDetails__container">
       <div className="details-header">
         <button className="goBack-btn display-flex ">
-          <IoMdArrowRoundBack /> Back
+          <Link to={"/games"}>
+            <IoMdArrowRoundBack /> Back
+          </Link>
         </button>
         <div className="cur-game-name">
           <h1>{name}</h1>

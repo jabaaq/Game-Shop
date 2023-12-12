@@ -27,7 +27,6 @@ body {
     font-size: 18px;
     background: #fff;
 
-    /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,17 +60,19 @@ body {
     justify-content: center;
 }
 
-.goBack-btn {
-    font-size: larger;
+.goBack-btn:first-child {
+    font-size: 1.5vw;
     gap: 0.5em;
     background: none;
     border: none;
-    color: white;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
 }
 
 .cur-game-name {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .details-header {
@@ -89,7 +90,6 @@ body {
 }
 
 .details-content {
-    background-color: aquamarine;
     height: 100%;
     width: 100%;
     display: flex;
@@ -97,7 +97,7 @@ body {
 
 .game-screenshots {
     margin: 1vw;
-    height: 90%;
+    height: 70%;
     max-height: 7 0%;
     width: 70%;
     position: relative;

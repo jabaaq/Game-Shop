@@ -13,14 +13,12 @@ const RawgService = () => {
   };
   const getGameData = async (id) => {
     const res = await request(`https://api.rawg.io/api/games/${id}?${_apiKey}`);
-    console.log(_transformGameDetails(res));
     return _transformGameDetails(res);
   };
   const getGameScreenshots = async (id) => {
     const res = await request(
       `https://api.rawg.io/api/games/${id}/screenshots?${_apiKey}`
     );
-    console.log(_transformGameScreenshots(res));
     return _transformGameScreenshots(res);
   };
 
