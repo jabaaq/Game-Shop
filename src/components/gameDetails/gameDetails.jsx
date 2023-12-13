@@ -14,6 +14,7 @@ import { RawgService } from "../../services/rawgService";
 import { Spinner } from "../spinner/spinner";
 import { Link } from "react-router-dom";
 import { AddToCart } from "./addToCart/addToCart";
+import { motion } from "framer-motion";
 
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ import { useEffect, useState } from "react";
 const GameDetails = ({ selectedGameId, handleGetPrice }) => {
   let storedGame = localStorage.getItem("selectedGame");
   let storedGameScreenshots = localStorage.getItem("gameScreenshots");
+
   const [selectedGame, setSelectedGame] = useState({});
   const [gameScreenshots, setGameScreenshots] = useState({});
   const { loading, getGameData, getGameScreenshots } = RawgService();
@@ -126,9 +128,13 @@ const View = ({ game, screenshots, handleGetPrice }) => {
             />
           </div>
           <div className="add-to-cart-container">
-            <button className="add-to-cart-btn">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="add-to-cart-btn"
+            >
               <AddToCart handleGetPrice={handleGetPrice} />
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

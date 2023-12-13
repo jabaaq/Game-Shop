@@ -14,6 +14,7 @@ const App = () => {
   const [selectedApi, setSelectedApi] = useState(null);
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
+  let currentGamePrice = localStorage.getItem("currentGamePrice");
 
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);
@@ -26,8 +27,12 @@ const App = () => {
 
   const handleGetPrice = (price) => {
     setGamePrice(price);
-    console.log(price);
+    localStorage.setItem("currentGamePrice", price);
   };
+
+  useEffect(() => {
+    setGamePrice(currentGamePrice);
+  }, [selectedGameId]);
 
   return (
     <Router>
