@@ -64,8 +64,7 @@ const App = () => {
             }
           ></Route>
         </Routes>
-
-        {/* <CartModal /> */}
+        <CartModal />
       </div>
     </Router>
   );

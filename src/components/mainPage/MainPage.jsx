@@ -46,7 +46,7 @@ const MainPage = ({ onSidebarMenuClick }) => {
                 <p>jabaaq</p>
               </a>
               <a
-                href="https://rawg.io/"
+                href="https://rawg.io/apidocs"
                 className="github-btn"
                 id="rawg-btn"
                 target="_blank"
