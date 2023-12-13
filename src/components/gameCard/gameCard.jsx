@@ -3,7 +3,15 @@ import "./gameCard.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const GameCard = ({ name, released, image, id, rating, handleGetId }) => {
+const GameCard = ({
+  name,
+  released,
+  image,
+  id,
+  rating,
+  handleGetId,
+  handleGetPrice,
+}) => {
   function generatePriceBasedOnRating(rating) {
     const averagePrice = 4.99;
     const averageRating = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
@@ -21,6 +29,7 @@ const GameCard = ({ name, released, image, id, rating, handleGetId }) => {
     <motion.div
       onClick={() => {
         handleGetId(id);
+        handleGetPrice(gamePrice);
       }}
       id={id}
       whileHover={{

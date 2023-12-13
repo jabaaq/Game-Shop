@@ -9,6 +9,7 @@ const StorePage = ({
   pageTitle,
   selectedApi,
   handleGetId,
+  handleGetPrice,
 }) => {
   return (
     <div className="shop-page">
@@ -18,6 +19,7 @@ const StorePage = ({
         pageTitle={pageTitle}
         selectedApi={selectedApi}
         handleGetId={handleGetId}
+        handleGetPrice={handleGetPrice}
       />
     </div>
   );

@@ -13,6 +13,7 @@ const App = () => {
   const [pageTitle, setPageTitle] = useState(null);
   const [selectedApi, setSelectedApi] = useState(null);
   const [selectedGameId, setSelectedGameId] = useState(null);
+  const [gamePrice, setGamePrice] = useState(0);
 
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);
@@ -21,6 +22,11 @@ const App = () => {
 
   const handleGetId = (id) => {
     setSelectedGameId(id);
+  };
+
+  const handleGetPrice = (price) => {
+    setGamePrice(price);
+    console.log(price);
   };
 
   return (
@@ -39,12 +45,18 @@ const App = () => {
                 pageTitle={pageTitle}
                 selectedApi={selectedApi}
                 handleGetId={handleGetId}
+                handleGetPrice={handleGetPrice}
               />
             }
           ></Route>
           <Route
             path="/games/game"
-            element={<GameDetails selectedGameId={selectedGameId} />}
+            element={
+              <GameDetails
+                handleGetPrice={gamePrice}
+                selectedGameId={selectedGameId}
+              />
+            }
           ></Route>
         </Routes>
 

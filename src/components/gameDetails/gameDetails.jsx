@@ -13,11 +13,12 @@ import AccordionTable from "./accordion/accordion";
 import { RawgService } from "../../services/rawgService";
 import { Spinner } from "../spinner/spinner";
 import { Link } from "react-router-dom";
+import { AddToCart } from "./addToCart/addToCart";
 
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 
-const GameDetails = ({ selectedGameId }) => {
+const GameDetails = ({ selectedGameId, handleGetPrice }) => {
   let storedGame = localStorage.getItem("selectedGame");
   let storedGameScreenshots = localStorage.getItem("gameScreenshots");
   const [selectedGame, setSelectedGame] = useState({});
@@ -49,7 +50,13 @@ const GameDetails = ({ selectedGameId }) => {
   };
 
   const spinner = <Spinner />;
-  const content = <View game={selectedGame} screenshots={gameScreenshots} />;
+  const content = (
+    <View
+      game={selectedGame}
+      screenshots={gameScreenshots}
+      handleGetPrice={handleGetPrice}
+    />
+  );
   return (
     <div className="gameDetails">
       <Navbar />
@@ -58,7 +65,7 @@ const GameDetails = ({ selectedGameId }) => {
   );
 };
 
-const View = ({ game, screenshots }) => {
+const View = ({ game, screenshots, handleGetPrice }) => {
   const {
     name,
     description,
@@ -117,6 +124,11 @@ const View = ({ game, screenshots }) => {
               developers={developers}
               publishers={publishers}
             />
+          </div>
+          <div className="add-to-cart-container">
+            <button className="add-to-cart-btn">
+              <AddToCart handleGetPrice={handleGetPrice} />
+            </button>
           </div>
         </div>
       </div>
