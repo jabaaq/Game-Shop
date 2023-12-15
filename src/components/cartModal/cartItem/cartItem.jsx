@@ -1,5 +1,5 @@
 import "./cartItem.css";
-import { TfiClose } from "react-icons/tfi";
+import { IoClose } from "react-icons/io5";
 import exampleImg from "../../../assets/img/example.jpg";
 
 const CartItem = () => {
@@ -10,7 +10,7 @@ const CartItem = () => {
       </div>
       <div className="info-container">
         <button className="exit-button">
-          <TfiClose />
+          <IoClose size={30} />
         </button>
         <div className="game-name">Grand theft auto 5 </div>
         <div className="added-game-price">29.99$</div>

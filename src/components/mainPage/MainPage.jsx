@@ -7,7 +7,7 @@ import { mdiAlphaRBox } from "@mdi/js";
 import "./MainPage.css";
 import { useEffect } from "react";
 
-const MainPage = ({ onSidebarMenuClick }) => {
+const MainPage = ({ onSidebarMenuClick, handleModalStatus }) => {
   useEffect(() => {
     // Clear local storage when MainPage component is mounted
     localStorage.removeItem("savedMenu");
@@ -15,7 +15,11 @@ const MainPage = ({ onSidebarMenuClick }) => {
   }, []);
   return (
     <div className="page">
-      <Header />
+      <Header
+        handleModalStatus={() => {
+          handleModalStatus(true);
+        }}
+      />
       <div className="main-page">
         <div className="left-page">
           <div className="information-block">

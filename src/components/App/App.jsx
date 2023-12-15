@@ -14,6 +14,7 @@ const App = () => {
   const [selectedApi, setSelectedApi] = useState(null);
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
+  const [modalStatus, setModalStatus] = useState(false);
   let currentGamePrice = localStorage.getItem("currentGamePrice");
 
   const handleSidebarClick = (title, api) => {
@@ -30,6 +31,10 @@ const App = () => {
     localStorage.setItem("currentGamePrice", price);
   };
 
+  const handleModalStatus = (status) => {
+    setModalStatus(status);
+  };
+
   useEffect(() => {
     setGamePrice(currentGamePrice);
   }, [selectedGameId]);
@@ -40,7 +45,12 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<MainPage onSidebarMenuClick={handleSidebarClick} />}
+            element={
+              <MainPage
+                onSidebarMenuClick={handleSidebarClick}
+                handleModalStatus={handleModalStatus}
+              />
+            }
           ></Route>
           <Route
             path="/games"
@@ -51,6 +61,7 @@ const App = () => {
                 selectedApi={selectedApi}
                 handleGetId={handleGetId}
                 handleGetPrice={handleGetPrice}
+                handleModalStatus={handleModalStatus}
               />
             }
           ></Route>
@@ -60,11 +71,15 @@ const App = () => {
               <GameDetails
                 handleGetPrice={gamePrice}
                 selectedGameId={selectedGameId}
+                handleModalStatus={handleModalStatus}
               />
             }
           ></Route>
         </Routes>
-        <CartModal />
+        <CartModal
+          modalStatus={modalStatus}
+          handleModalStatus={handleModalStatus}
+        />
       </div>
     </Router>
   );

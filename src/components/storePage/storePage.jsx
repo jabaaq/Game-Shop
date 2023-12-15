@@ -2,7 +2,6 @@ import { Navbar } from "../navBar/NavBar";
 import { SidebarMenu } from "../sidebar/sidebar";
 import { GamesList } from "../gamesList/gamesList";
 import "./storePage.css";
-import { useState } from "react";
 
 const StorePage = ({
   onSidebarMenuClick,
@@ -10,10 +9,11 @@ const StorePage = ({
   selectedApi,
   handleGetId,
   handleGetPrice,
+  handleModalStatus,
 }) => {
   return (
     <div className="shop-page">
-      <Navbar />
+      <Navbar handleModalStatus={handleModalStatus} />
       <SidebarMenu onSidebarMenuClick={onSidebarMenuClick} />
       <GamesList
         pageTitle={pageTitle}

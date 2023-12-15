@@ -1,12 +1,41 @@
 import "./cartModal.css";
 import { CartItem } from "./cartItem/cartItem";
+import { IoClose } from "react-icons/io5";
+import { useEffect } from "react";
 
-const CartModal = () => {
+const CartModal = ({ modalStatus, handleModalStatus }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleModalStatus(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
-    <div className="modal show">
+    <div
+      className={`modal ${modalStatus ? "show" : "hide"}`}
+      onClick={() => {
+        handleModalStatus(false);
+      }}
+    >
       <div className="modal-box">
         <div className="modal-box-inner">
           <div className="modal-content">
+            <button
+              className="close-modal-btn"
+              onClick={() => {
+                handleModalStatus(false);
+              }}
+            >
+              <IoClose size={30} />
+            </button>
             <header className="total-games">
               <h2 className="modal-game-count">3 Games</h2>
             </header>

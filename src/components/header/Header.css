@@ -22,12 +22,13 @@ header {
 
 .cart {
     margin: 15px;
+    cursor: pointer;
 }
 
-.cart span {
-    color: white;
-    font-size: 30px;
+.cart :hover {
+    transform: scale(1.1);
 }
+
 
 
 .logo {

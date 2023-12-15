@@ -1,8 +1,9 @@
 import { BiSolidGhost } from "react-icons/bi";
 import "./Header.css";
 import { CartModal } from "../cartModal/cartModal";
+import { PiShoppingCartThin } from "react-icons/pi";
 
-const Header = () => {
+const Header = ({ handleModalStatus }) => {
   return (
     <header>
       <div className="page-logo">
@@ -28,12 +29,13 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      <div className="cart">
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-        />
-        <span className="material-symbols-outlined">shopping_cart</span>
+      <div
+        className="cart"
+        onClick={() => {
+          handleModalStatus(true);
+        }}
+      >
+        <PiShoppingCartThin size={30} />
       </div>
     </header>
   );

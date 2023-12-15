@@ -27,6 +27,11 @@
 
 .cart-icon {
     margin-right: 80px;
+    cursor: pointer;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
 }
 
 @media only screen and (max-width: 600px) {
@@ -44,5 +49,9 @@
 
     .cart-icon {
         margin-right: 0;
+    }
+
+    .searchbar {
+        margin: 15px;
     }
 }

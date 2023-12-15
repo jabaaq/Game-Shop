@@ -1,12 +1,12 @@
 import Icon from "@mdi/react";
-import { mdiCartOutline } from "@mdi/js";
 import { BiSolidGhost } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { PiShoppingCartThin } from "react-icons/pi";
 
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ handleModalStatus }) => {
   return (
     <header id="main-header">
       <Link to="/">
@@ -41,8 +41,13 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className="cart-icon">
-        <Icon path={mdiCartOutline} size={1.4} />
+      <div
+        className="cart-icon"
+        onClick={() => {
+          handleModalStatus(true);
+        }}
+      >
+        <PiShoppingCartThin size={30} />
       </div>
     </header>
   );

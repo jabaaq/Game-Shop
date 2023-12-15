@@ -13,7 +13,6 @@
 }
 
 .modal-box {
-    /* width: 800px; */
     width: 60%;
     height: 80%;
     min-height: 400px;
@@ -27,6 +26,8 @@
     transform: translate(-50%, -50%);
     overflow: hidden;
     position: relative;
+    font-family: 'Poppins', sans-serif;
+    /* padding-left: 7px; */
 }
 
 .modal-box-inner {
@@ -41,16 +42,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    width: 100%;
 }
 
 
 .modal-games-grid {
     display: grid;
-    /* grid-template-columns: repeat(2, 1fr); */
     grid-template-columns: repeat(2, minmax(200px, 1fr));
-    column-gap: 3em;
+    place-items: center;
     row-gap: 1em;
+    width: 95%;
+}
+
+.total-price {
+    color: rgb(88, 87, 87);
 }
 
 
@@ -60,6 +65,28 @@
 
 .hide {
     display: none;
+}
+
+.close-modal-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgb(16, 17, 18);
+    border: none;
+    color: rgb(88, 87, 87);
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    margin: 20px 25px;
+}
+
+.close-modal-btn :active {
+    transform: scale(0.9);
+    background-color: rgba(16, 17, 18, 0.687);
 }
 
 @media only screen and (max-width:1200px) {

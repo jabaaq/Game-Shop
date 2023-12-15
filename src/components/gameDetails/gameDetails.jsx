@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 
-const GameDetails = ({ selectedGameId, handleGetPrice }) => {
+const GameDetails = ({ selectedGameId, handleGetPrice, handleModalStatus }) => {
   let storedGame = localStorage.getItem("selectedGame");
   let storedGameScreenshots = localStorage.getItem("gameScreenshots");
 
@@ -61,7 +61,7 @@ const GameDetails = ({ selectedGameId, handleGetPrice }) => {
   );
   return (
     <div className="gameDetails">
-      <Navbar />
+      <Navbar handleModalStatus={handleModalStatus} />
       {loading ? spinner : content}
     </div>
   );
