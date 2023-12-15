@@ -1,9 +1,9 @@
 .cart-item-container {
-    width: 25em;
-    height: 10em;
+    height: 140px;
+    width: 350px;
     background-color: rgb(38, 38, 38);
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     border-radius: 10px;
@@ -51,4 +51,11 @@
     align-items: center;
     position: relative;
     bottom: 2vw;
+}
+
+@media only screen and (max-width:1200px) {
+    .cart-item-container {
+        height: 130px;
+        width: 270px;
+    }
 }

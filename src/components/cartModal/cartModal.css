@@ -15,12 +15,13 @@
 .modal-box {
     /* width: 800px; */
     width: 60%;
-    height: 620px;
+    height: 80%;
+    min-height: 400px;
+    min-width: 300px;
     background-color: rgb(33, 33, 33);
     box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 26px;
     z-index: 999;
-    /* position: absolute; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -47,7 +48,7 @@
 .modal-games-grid {
     display: grid;
     /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
     column-gap: 3em;
     row-gap: 1em;
 }
@@ -61,4 +62,12 @@
     display: none;
 }
 
-@media only screen and (max-width:1200px) {}
+@media only screen and (max-width:1200px) {
+    .modal-games-grid {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+}
+
+.modal-game-count {
+    font-size: 25px;
+}
