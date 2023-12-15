@@ -1,6 +1,54 @@
 .cart-item-container {
-
     width: 25em;
     height: 10em;
-    background-color: aqua;
+    background-color: rgb(38, 38, 38);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.image-container {
+    margin: 10px;
+    width: 45%;
+    height: 80%;
+}
+
+.cart-game-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 100%;
+    width: 55%;
+    margin: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+.game-name {
+    color: white;
+}
+
+.added-game-price {
+    color: rgb(88, 87, 87);
+}
+
+.exit-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 2vw;
 }
