@@ -1,7 +1,9 @@
 import "./gameCard.css";
 
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { MdOutlineDone } from "react-icons/md";
 
 const GameCard = ({
   name,
@@ -12,6 +14,7 @@ const GameCard = ({
   handleGetId,
   handleGetPrice,
   handleAddCartGames,
+  addedCartGames,
 }) => {
   function generatePriceBasedOnRating(rating) {
     const averagePrice = 4.99;
@@ -42,15 +45,24 @@ const GameCard = ({
       <Link to={"/games/game"}>
         <img src={image} className="card-image" alt="Game Image" />
 
-        <div
-          className="add-to-cart"
-          onClick={(e) => {
-            e.preventDefault();
-            console.log(id);
-            handleAddCartGames(name, image, gamePrice);
-          }}
-        >
-          <button className="add-cart-btn">Add to cart +</button>
+        <div className="add-to-cart">
+          <button
+            className={`add-cart-btn ${
+              addedCartGames.some((game) => game.name === name) ? "added" : ""
+            }`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleAddCartGames(name, image, gamePrice);
+            }}
+          >
+            {addedCartGames.some((game) => game.name === name) ? (
+              <>
+                Added <MdOutlineDone size={15} />
+              </>
+            ) : (
+              "Add to cart +"
+            )}
+          </button>
           <p className="price">{gamePrice}$</p>
         </div>
         <div className="heading">

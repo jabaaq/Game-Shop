@@ -74,6 +74,7 @@ const App = () => {
                 handleGetPrice={handleGetPrice}
                 handleModalStatus={handleModalStatus}
                 handleAddCartGames={handleAddCartGames}
+                addedCartGames={addedCartGames}
               />
             }
           ></Route>

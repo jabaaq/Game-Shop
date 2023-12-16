@@ -9,6 +9,7 @@ const GamesList = ({
   handleGetId,
   handleGetPrice,
   handleAddCartGames,
+  addedCartGames,
 }) => {
   const { loading, error, getAllGames } = RawgService();
   const [games, setGames] = useState([]);
@@ -49,6 +50,7 @@ const GamesList = ({
             handleGetId={handleGetId}
             handleGetPrice={handleGetPrice}
             handleAddCartGames={handleAddCartGames}
+            addedCartGames={addedCartGames}
           />
         </li>
       );
