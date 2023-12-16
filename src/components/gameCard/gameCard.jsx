@@ -11,6 +11,7 @@ const GameCard = ({
   rating,
   handleGetId,
   handleGetPrice,
+  handleAddCartGames,
 }) => {
   function generatePriceBasedOnRating(rating) {
     const averagePrice = 4.99;
@@ -41,7 +42,14 @@ const GameCard = ({
       <Link to={"/games/game"}>
         <img src={image} className="card-image" alt="Game Image" />
 
-        <div className="add-to-cart">
+        <div
+          className="add-to-cart"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log(id);
+            handleAddCartGames(name, image, gamePrice);
+          }}
+        >
           <button className="add-cart-btn">Add to cart +</button>
           <p className="price">{gamePrice}$</p>
         </div>

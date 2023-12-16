@@ -77,6 +77,7 @@ const View = ({ game, screenshots, handleGetPrice }) => {
     website,
     developers,
     publishers,
+    // background_image
   } = game;
 
   const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.

@@ -15,6 +15,7 @@ const App = () => {
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);
+  const [addedCartGames, setAddedCartGames] = useState([]);
   let currentGamePrice = localStorage.getItem("currentGamePrice");
 
   const handleSidebarClick = (title, api) => {
@@ -39,6 +40,10 @@ const App = () => {
     setGamePrice(currentGamePrice);
   }, [selectedGameId]);
 
+  const handleAddCartGames = (name, image, price) => {
+    setAddedCartGames((prevGames) => [...prevGames, { name, image, price }]);
+  };
+
   return (
     <Router>
       <div className="app">
@@ -62,6 +67,7 @@ const App = () => {
                 handleGetId={handleGetId}
                 handleGetPrice={handleGetPrice}
                 handleModalStatus={handleModalStatus}
+                handleAddCartGames={handleAddCartGames}
               />
             }
           ></Route>
@@ -79,6 +85,7 @@ const App = () => {
         <CartModal
           modalStatus={modalStatus}
           handleModalStatus={handleModalStatus}
+          addedCartGames={addedCartGames}
         />
       </div>
     </Router>

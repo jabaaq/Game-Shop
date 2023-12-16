@@ -3,7 +3,13 @@ import { GameCard } from "../gameCard/gameCard";
 import { Spinner } from "../spinner/spinner";
 import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
-const GamesList = ({ pageTitle, selectedApi, handleGetId, handleGetPrice }) => {
+const GamesList = ({
+  pageTitle,
+  selectedApi,
+  handleGetId,
+  handleGetPrice,
+  handleAddCartGames,
+}) => {
   const { loading, error, getAllGames } = RawgService();
   const [games, setGames] = useState([]);
 
@@ -42,6 +48,7 @@ const GamesList = ({ pageTitle, selectedApi, handleGetId, handleGetPrice }) => {
             rating={item.rating}
             handleGetId={handleGetId}
             handleGetPrice={handleGetPrice}
+            handleAddCartGames={handleAddCartGames}
           />
         </li>
       );

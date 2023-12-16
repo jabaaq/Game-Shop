@@ -13,6 +13,7 @@
     height: 170px;
     border-radius: 10px 10px 0 0;
     object-fit: cover;
+    cursor: auto;
 }
 
 
@@ -25,31 +26,30 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 5px;
+    cursor: auto;
 }
 
 .add-cart-btn {
     border: none;
     background-color: rgba(32, 32, 32, 0);
     color: rgb(88, 87, 87);
+    z-index: 5;
+    height: 50px;
+    cursor: pointer;
 }
 
 .price {
     font-size: 12px;
 }
 
-.category:hover {
-    cursor: pointer;
-}
 
 .heading {
     font-weight: 600;
     color: white;
     padding: 7px;
+    cursor: auto;
 }
 
-.heading:hover {
-    cursor: pointer;
-}
 
 .released {
     color: gray;
@@ -62,9 +62,7 @@
     font-weight: 600;
 }
 
-.name:hover {
-    cursor: pointer;
-}
+
 
 
 

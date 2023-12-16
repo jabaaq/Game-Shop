@@ -2,8 +2,9 @@ import "./cartModal.css";
 import { CartItem } from "./cartItem/cartItem";
 import { IoClose } from "react-icons/io5";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
-const CartModal = ({ modalStatus, handleModalStatus }) => {
+const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -18,11 +19,15 @@ const CartModal = ({ modalStatus, handleModalStatus }) => {
     };
   }, []);
 
+  useEffect(() => {
+    console.log(addedCartGames);
+  }, [addedCartGames]);
+
   return (
     <div
       className={`modal ${modalStatus ? "show" : "hide"}`}
-      onClick={() => {
-        handleModalStatus(false);
+      onClick={(e) => {
+        if (e.target.className === "modal show") handleModalStatus(false);
       }}
     >
       <div className="modal-box">
@@ -40,15 +45,14 @@ const CartModal = ({ modalStatus, handleModalStatus }) => {
               <h2 className="modal-game-count">3 Games</h2>
             </header>
             <main className="modal-games-grid">
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
-              <CartItem />
+              {addedCartGames.map((item, i) => (
+                <CartItem
+                  name={item.name}
+                  image={item.image}
+                  price={item.price}
+                  key={i}
+                />
+              ))}
             </main>
             <footer className="payment-information">
               <p className="total-price">Total: $ 78.99</p>

@@ -37,6 +37,7 @@ const RawgService = () => {
       genres: game.genres.map((genre) => genre.name).join(", "),
       website: game.website,
       developers: game.developers.map((dev) => dev.name).join(", "),
+      background_image: game.background_image,
       publishers: game.publishers
         .map((publishers) => publishers.name)
         .join(", "),

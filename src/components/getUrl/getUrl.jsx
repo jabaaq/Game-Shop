@@ -3,11 +3,6 @@ import { _apiKey } from "../../apiKey";
 const GetUrl = () => {
   const currentISODate = new Date().toISOString().slice(0, 10);
   const currentDate = new Date();
-  const last30DaysISODate = new Date(
-    new Date().setDate(currentDate.getDate() - 30)
-  )
-    .toISOString()
-    .slice(0, 10);
 
   const manageDate = (num) => {
     const newDate = new Date(new Date().setDate(currentDate.getDate() - num))

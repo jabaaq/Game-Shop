@@ -10,6 +10,7 @@ const StorePage = ({
   handleGetId,
   handleGetPrice,
   handleModalStatus,
+  handleAddCartGames,
 }) => {
   return (
     <div className="shop-page">
@@ -20,6 +21,7 @@ const StorePage = ({
         selectedApi={selectedApi}
         handleGetId={handleGetId}
         handleGetPrice={handleGetPrice}
+        handleAddCartGames={handleAddCartGames}
       />
     </div>
   );
