@@ -41,7 +41,13 @@ const App = () => {
   }, [selectedGameId]);
 
   const handleAddCartGames = (name, image, price) => {
-    setAddedCartGames((prevGames) => [...prevGames, { name, image, price }]);
+    setAddedCartGames((prevGames) => {
+      if (!prevGames.some((game) => game.name === name)) {
+        return [...prevGames, { name, image, price }];
+      } else {
+        return prevGames;
+      }
+    });
   };
 
   return (

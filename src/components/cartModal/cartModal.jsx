@@ -47,10 +47,10 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
             <main className="modal-games-grid">
               {addedCartGames.map((item, i) => (
                 <CartItem
+                  key={i}
                   name={item.name}
                   image={item.image}
                   price={item.price}
-                  key={i}
                 />
               ))}
             </main>
