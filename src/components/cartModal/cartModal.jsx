@@ -19,9 +19,10 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(addedCartGames);
-  }, [addedCartGames]);
+  //To calculate the total price of the games added to the cart
+  const totalNum = addedCartGames.reduce((acc, curr) => {
+    return acc + +curr.price;
+  }, 0);
 
   return (
     <div
@@ -42,7 +43,9 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
               <IoClose size={30} />
             </button>
             <header className="total-games">
-              <h2 className="modal-game-count">3 Games</h2>
+              <h2 className="modal-game-count">
+                {addedCartGames.length} Games
+              </h2>
             </header>
             <main className="modal-games-grid">
               {addedCartGames.map((item, i) => (
@@ -55,7 +58,7 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
               ))}
             </main>
             <footer className="payment-information">
-              <p className="total-price">Total: $ 78.99</p>
+              <p className="total-price">Total: {totalNum}$</p>
             </footer>
           </div>
         </div>
