@@ -52,7 +52,8 @@ const GameCard = ({
             }`}
             onClick={(e) => {
               e.preventDefault();
-              handleAddCartGames(name, image, gamePrice);
+              //adding games into the shopping cart
+              handleAddCartGames({ name, image, gamePrice, id });
             }}
           >
             {addedCartGames.some((game) => game.name === name) ? (

@@ -4,7 +4,12 @@ import { IoClose } from "react-icons/io5";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
+const CartModal = ({
+  modalStatus,
+  handleModalStatus,
+  addedCartGames,
+  setAddedCartGames,
+}) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -21,7 +26,7 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
 
   //To calculate the total price of the games added to the cart
   const totalNum = addedCartGames.reduce((acc, curr) => {
-    return acc + +curr.price;
+    return acc + Number(curr.price);
   }, 0);
 
   return (
@@ -54,11 +59,15 @@ const CartModal = ({ modalStatus, handleModalStatus, addedCartGames }) => {
                   name={item.name}
                   image={item.image}
                   price={item.price}
+                  id={item.id}
+                  index={i}
+                  addedCartGames={addedCartGames}
+                  setAddedCartGames={setAddedCartGames}
                 />
               ))}
             </main>
             <footer className="payment-information">
-              <p className="total-price">Total: {totalNum}$</p>
+              <p className="total-price">Total: {totalNum.toFixed(2)}$</p>
             </footer>
           </div>
         </div>

@@ -15,7 +15,13 @@ const App = () => {
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);
+  //to add the games from the gamesList into the cartModal
   const [addedCartGames, setAddedCartGames] = useState([]);
+
+  //to modify the added games into the cartModal
+  const [deletedGamesFromCart, setDeletedGamesFromCart] =
+    useState(addedCartGames);
+
   let currentGamePrice = localStorage.getItem("currentGamePrice");
 
   const handleSidebarClick = (title, api) => {
@@ -40,10 +46,12 @@ const App = () => {
     setGamePrice(currentGamePrice);
   }, [selectedGameId]);
 
-  const handleAddCartGames = (name, image, price) => {
+  const handleAddCartGames = (newGames) => {
+    const { name, image, price, id } = newGames;
+    // const { name, image, price, id } = newGames;
     setAddedCartGames((prevGames) => {
-      if (!prevGames.some((game) => game.name === name)) {
-        return [...prevGames, { name, image, price }];
+      if (!prevGames.some((game) => game.id === id)) {
+        return [...prevGames, { name, image, price, id }];
       } else {
         return prevGames;
       }
@@ -93,6 +101,7 @@ const App = () => {
           modalStatus={modalStatus}
           handleModalStatus={handleModalStatus}
           addedCartGames={addedCartGames}
+          setAddedCartGames={setAddedCartGames}
         />
       </div>
     </Router>
