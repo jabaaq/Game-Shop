@@ -18,10 +18,6 @@ const App = () => {
   //to add the games from the gamesList into the cartModal
   const [addedCartGames, setAddedCartGames] = useState([]);
 
-  //to modify the added games into the cartModal
-  const [deletedGamesFromCart, setDeletedGamesFromCart] =
-    useState(addedCartGames);
-
   let currentGamePrice = localStorage.getItem("currentGamePrice");
 
   const handleSidebarClick = (title, api) => {
@@ -48,7 +44,6 @@ const App = () => {
 
   const handleAddCartGames = (newGames) => {
     const { name, image, price, id } = newGames;
-    // const { name, image, price, id } = newGames;
     setAddedCartGames((prevGames) => {
       if (!prevGames.some((game) => game.id === id)) {
         return [...prevGames, { name, image, price, id }];

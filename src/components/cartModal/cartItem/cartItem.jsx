@@ -13,6 +13,7 @@ const CartItem = ({
   // Filter out the selected game from the cart
   const removeFromCart = () => {
     const updatedCart = addedCartGames.filter((game) => game.id !== id);
+    console.log(updatedCart);
     setAddedCartGames(updatedCart);
   };
 
