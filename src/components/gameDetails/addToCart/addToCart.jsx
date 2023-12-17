@@ -1,10 +1,35 @@
 import "./addToCart.css";
+import { MdOutlineDone } from "react-icons/md";
 
-const AddToCart = ({ handleGetPrice }) => {
+const AddToCart = ({
+  handleGetPrice,
+  selectedGameInfoForTheCart,
+  handleAddCartGames,
+  addedCartGames,
+}) => {
+  const { id } = selectedGameInfoForTheCart;
+  const isGameSelected = addedCartGames.some((game) => game.id === id);
+
   return (
-    <div data-tooltip={`Price ${handleGetPrice}$`} className="button">
+    <div
+      disabled={isGameSelected}
+      data-tooltip={`Price ${handleGetPrice}$`}
+      className={`button ${isGameSelected ? " " : ""}`}
+      onClick={() => {
+        console.log("added");
+        handleAddCartGames(selectedGameInfoForTheCart);
+      }}
+    >
       <div className="button-wrapper">
-        <div className="text">Add to cart +</div>
+        <div className="text">
+          {isGameSelected ? (
+            <>
+              Added <MdOutlineDone size={15} />
+            </>
+          ) : (
+            "Add to cart +"
+          )}
+        </div>
         <span className="icon">
           <svg
             viewBox="0 0 16 16"

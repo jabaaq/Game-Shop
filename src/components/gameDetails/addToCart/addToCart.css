@@ -87,6 +87,8 @@
     height: 24px;
 }
 
+
+
 .button:hover {
     background: #222;
 }
@@ -111,4 +113,14 @@
 
 .button:hover:before {
     bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+.button[disabled] {
+    background-color: rgb(33, 33, 33);
+    color: #7f8c8d;
+    pointer-events: none;
+}
+
+.button[disabled] .button-wrapper .text {
+    color: rgb(27, 166, 171);
 }

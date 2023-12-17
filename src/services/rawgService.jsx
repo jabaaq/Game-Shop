@@ -30,6 +30,7 @@ const RawgService = () => {
 
   const _transformGameDetails = (game) => {
     return {
+      id: game.id,
       name: game.name,
       description: game.description_raw,
       rating: game.rating,

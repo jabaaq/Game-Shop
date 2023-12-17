@@ -1,7 +1,6 @@
 import "./gameCard.css";
 
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineDone } from "react-icons/md";
 
@@ -53,7 +52,6 @@ const GameCard = ({
             onClick={(e) => {
               e.preventDefault();
               //adding games into the shopping cart
-              console.log(name, image, gamePrice, id);
               const cartAddedGames = { name, image, price: gamePrice, id };
               handleAddCartGames(cartAddedGames);
             }}

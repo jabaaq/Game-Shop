@@ -26,7 +26,6 @@ const App = () => {
   }, [addedCartGames]);
 
   useEffect(() => {
-    console.log(JSON.parse(cartAddedGames));
     setAddedCartGames(JSON.parse(cartAddedGames));
   }, []);
 
@@ -98,6 +97,8 @@ const App = () => {
                 handleGetPrice={gamePrice}
                 selectedGameId={selectedGameId}
                 handleModalStatus={handleModalStatus}
+                handleAddCartGames={handleAddCartGames}
+                addedCartGames={addedCartGames}
               />
             }
           ></Route>

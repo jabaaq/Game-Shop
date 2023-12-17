@@ -19,7 +19,13 @@ import { motion } from "framer-motion";
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 
-const GameDetails = ({ selectedGameId, handleGetPrice, handleModalStatus }) => {
+const GameDetails = ({
+  selectedGameId,
+  handleGetPrice,
+  handleModalStatus,
+  handleAddCartGames,
+  addedCartGames,
+}) => {
   let storedGame = localStorage.getItem("selectedGame");
   let storedGameScreenshots = localStorage.getItem("gameScreenshots");
 
@@ -47,7 +53,6 @@ const GameDetails = ({ selectedGameId, handleGetPrice, handleModalStatus }) => {
 
   const onGameLoaded = (gameId) => {
     setSelectedGame(gameId);
-
     localStorage.setItem("selectedGame", JSON.stringify(gameId));
   };
 
@@ -57,6 +62,10 @@ const GameDetails = ({ selectedGameId, handleGetPrice, handleModalStatus }) => {
       game={selectedGame}
       screenshots={gameScreenshots}
       handleGetPrice={handleGetPrice}
+      //to add the games into the shopping cart
+      handleAddCartGames={handleAddCartGames}
+      //To check if the game is added or not - to stylize the add cart button
+      addedCartGames={addedCartGames}
     />
   );
   return (
@@ -67,7 +76,13 @@ const GameDetails = ({ selectedGameId, handleGetPrice, handleModalStatus }) => {
   );
 };
 
-const View = ({ game, screenshots, handleGetPrice }) => {
+const View = ({
+  game,
+  screenshots,
+  handleGetPrice,
+  handleAddCartGames,
+  addedCartGames,
+}) => {
   const {
     name,
     description,
@@ -77,8 +92,17 @@ const View = ({ game, screenshots, handleGetPrice }) => {
     website,
     developers,
     publishers,
-    // background_image
+    id,
+    background_image,
   } = game;
+
+  //Information to add to cart
+  const selectedGameInfoForTheCart = {
+    name,
+    id: id,
+    image: background_image,
+    price: handleGetPrice,
+  };
 
   const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.
 
@@ -134,7 +158,14 @@ const View = ({ game, screenshots, handleGetPrice }) => {
               whileTap={{ scale: 0.9 }}
               className="add-to-cart-btn"
             >
-              <AddToCart handleGetPrice={handleGetPrice} />
+              <AddToCart
+                handleGetPrice={handleGetPrice}
+                //to add the games into the shopping cart
+                selectedGameInfoForTheCart={selectedGameInfoForTheCart}
+                handleAddCartGames={handleAddCartGames}
+                //To check if the game is added or not - to stylize the add cart button
+                addedCartGames={addedCartGames}
+              />
             </motion.button>
           </div>
         </div>
