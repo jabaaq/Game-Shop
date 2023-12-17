@@ -19,6 +19,16 @@ const App = () => {
   const [addedCartGames, setAddedCartGames] = useState([]);
 
   let currentGamePrice = localStorage.getItem("currentGamePrice");
+  const cartAddedGames = localStorage.getItem("cartAddedGames");
+
+  useEffect(() => {
+    localStorage.setItem("cartAddedGames", JSON.stringify(addedCartGames));
+  }, [addedCartGames]);
+
+  useEffect(() => {
+    console.log(JSON.parse(cartAddedGames));
+    setAddedCartGames(JSON.parse(cartAddedGames));
+  }, []);
 
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);

@@ -27,12 +27,12 @@ const CartItem = ({
         />
       </div>
       <div className="info-container">
-        <button className="exit-button" onClick={removeFromCart}>
-          <IoClose size={30} />
-        </button>
         <div className="game-name">{name}</div>
         <div className="added-game-price">{price}$</div>
       </div>
+      <button className="exit-button" onClick={removeFromCart}>
+        <IoClose size={30} />
+      </button>
     </div>
   );
 };
