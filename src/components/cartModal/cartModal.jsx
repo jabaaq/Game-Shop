@@ -51,6 +51,14 @@ const CartModal = ({
               <h2 className="modal-game-count">
                 {addedCartGames.length} Games
               </h2>
+              <button
+                className="clear-cart-btn"
+                onClick={() => {
+                  setAddedCartGames([]);
+                }}
+              >
+                Clear
+              </button>
             </header>
             <main className="modal-games-grid">
               {addedCartGames.map((item, i) => (

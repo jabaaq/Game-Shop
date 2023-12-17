@@ -96,9 +96,28 @@
     height: 50px;
     background-color: var(--background-color);
     top: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
+    margin: auto;
+
 }
+
+.clear-cart-btn {
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(88, 87, 87);
+    border: none;
+    cursor: pointer;
+}
+
+.clear-cart-btn:active {
+    color: rgb(127, 125, 125);
+}
+
 
 .payment-information {
     position: fixed;
