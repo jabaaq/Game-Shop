@@ -16,7 +16,6 @@ const AddToCart = ({
       data-tooltip={`Price ${handleGetPrice}$`}
       className={`button ${isGameSelected ? " " : ""}`}
       onClick={() => {
-        console.log("added");
         handleAddCartGames(selectedGameInfoForTheCart);
       }}
     >

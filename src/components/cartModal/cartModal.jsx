@@ -9,7 +9,6 @@ const CartModal = ({
   addedCartGames,
   setAddedCartGames,
   handleGetId,
-  setSelectedGameId,
   handleGetPrice,
 }) => {
   useEffect(() => {
@@ -75,7 +74,6 @@ const CartModal = ({
                   setAddedCartGames={setAddedCartGames}
                   handleGetId={handleGetId}
                   handleModalStatus={handleModalStatus}
-                  setSelectedGameId={setSelectedGameId}
                   handleGetPrice={handleGetPrice}
                 />
               ))}
