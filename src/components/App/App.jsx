@@ -35,6 +35,7 @@ const App = () => {
   };
 
   const handleGetId = (id) => {
+    console.log(selectedGameId);
     setSelectedGameId(id);
   };
 
@@ -108,6 +109,9 @@ const App = () => {
           handleModalStatus={handleModalStatus}
           addedCartGames={addedCartGames}
           setAddedCartGames={setAddedCartGames}
+          handleGetId={handleGetId}
+          setSelectedGameId={setSelectedGameId}
+          handleGetPrice={handleGetPrice}
         />
       </div>
     </Router>

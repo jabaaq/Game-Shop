@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import "./cartItem.css";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const CartItem = ({
   name,
@@ -9,16 +9,25 @@ const CartItem = ({
   id,
   addedCartGames,
   setAddedCartGames,
+  handleGetId,
+  handleModalStatus,
+  setSelectedGameId,
 }) => {
   // Filter out the selected game from the cart
   const removeFromCart = () => {
     const updatedCart = addedCartGames.filter((game) => game.id !== id);
-    console.log(updatedCart);
     setAddedCartGames(updatedCart);
   };
 
   return (
-    <div className="cart-item-container">
+    <Link
+      to={"/games/game"}
+      className="cart-item-container"
+      onClick={() => {
+        handleGetId(id);
+        handleModalStatus(false);
+      }}
+    >
       <div className="image-container">
         <img
           src={image}
@@ -33,7 +42,7 @@ const CartItem = ({
       <button className="exit-button" onClick={removeFromCart}>
         <IoClose size={30} />
       </button>
-    </div>
+    </Link>
   );
 };
 

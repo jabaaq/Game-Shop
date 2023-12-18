@@ -2,13 +2,15 @@ import "./cartModal.css";
 import { CartItem } from "./cartItem/cartItem";
 import { IoClose } from "react-icons/io5";
 import { useEffect } from "react";
-import { motion } from "framer-motion";
 
 const CartModal = ({
   modalStatus,
   handleModalStatus,
   addedCartGames,
   setAddedCartGames,
+  handleGetId,
+  setSelectedGameId,
+  handleGetPrice,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -71,6 +73,10 @@ const CartModal = ({
                   index={i}
                   addedCartGames={addedCartGames}
                   setAddedCartGames={setAddedCartGames}
+                  handleGetId={handleGetId}
+                  handleModalStatus={handleModalStatus}
+                  setSelectedGameId={setSelectedGameId}
+                  handleGetPrice={handleGetPrice}
                 />
               ))}
             </main>
