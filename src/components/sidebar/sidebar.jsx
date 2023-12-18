@@ -92,7 +92,7 @@ function IconBox(props) {
       setIsSelected(lastSelectedMenu);
     }
     onSidebarMenuClick(lastSelectedMenu);
-  }, []);
+  }, [isSelected]);
 
   return (
     <div className="navSection">

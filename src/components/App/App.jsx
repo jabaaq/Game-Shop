@@ -32,6 +32,9 @@ const App = () => {
   const handleSidebarClick = (title, api) => {
     setPageTitle(title);
     setSelectedApi(api);
+
+    console.log("TITLE:", title);
+    console.log("SELECTED API:", api);
   };
 
   const handleGetId = (id) => {

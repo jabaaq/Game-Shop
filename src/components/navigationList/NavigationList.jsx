@@ -8,12 +8,25 @@ import { GetUrl } from "../getUrl/getUrl";
 
 const NavigationList = ({ onSidebarMenuClick }) => {
   const { random, allTimeTop, last30Days } = GetUrl();
-
+  const navigationListButtons = [
+    { name: "Game", icon: <RiGameFill />, className: "card red" },
+    { name: "Last 30 days", icon: <FaStar />, className: " card blue" },
+    { name: "All time top", icon: <ImTrophy />, className: "card green" },
+  ];
   return (
     <div className="cards">
       <h2>Quick Navigation</h2>
       <div className="list-items">
-        <Link
+        {navigationListButtons.map((item, i) => (
+          <Link to="/games" key={i} className="tip">
+            <div className={item.className}>
+              {item.icon}
+              {item.name}
+            </div>
+          </Link>
+        ))}
+
+        {/* <Link
           to="/games"
           className="tip"
           onClick={() => onSidebarMenuClick("Random", random)}
@@ -42,7 +55,7 @@ const NavigationList = ({ onSidebarMenuClick }) => {
             <ImTrophy />
             All time top
           </div>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

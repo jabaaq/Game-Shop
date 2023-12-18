@@ -13,7 +13,6 @@ const GamesList = ({
 }) => {
   const { loading, error, getAllGames } = RawgService();
   const [games, setGames] = useState([]);
-
   useEffect(() => {
     setGames([]);
 
