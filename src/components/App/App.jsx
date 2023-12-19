@@ -32,7 +32,6 @@ const App = () => {
 
   const handleSidebarClick = (title, api) => {
     setSelectedGameList({ title, api });
-    console.log(selectedGameList);
   };
 
   const handleGetId = (id) => {

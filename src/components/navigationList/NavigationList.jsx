@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { GetUrl } from "../getUrl/getUrl";
 import { useEffect } from "react";
 
-const NavigationList = ({ onSidebarMenuClick }) => {
+const NavigationList = ({}) => {
   const { random, allTimeTop, last30Days } = GetUrl();
   const navigationListButtons = [
     {
