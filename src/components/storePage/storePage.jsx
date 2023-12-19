@@ -5,25 +5,23 @@ import "./storePage.css";
 
 const StorePage = ({
   onSidebarMenuClick,
-  pageTitle,
-  selectedApi,
   handleGetId,
   handleGetPrice,
   handleModalStatus,
   handleAddCartGames,
   addedCartGames,
+  selectedGameList,
 }) => {
   return (
     <div className="shop-page">
       <Navbar handleModalStatus={handleModalStatus} />
       <SidebarMenu onSidebarMenuClick={onSidebarMenuClick} />
       <GamesList
-        pageTitle={pageTitle}
-        selectedApi={selectedApi}
         handleGetId={handleGetId}
         handleGetPrice={handleGetPrice}
         handleAddCartGames={handleAddCartGames}
         addedCartGames={addedCartGames}
+        selectedGameList={selectedGameList}
       />
     </div>
   );

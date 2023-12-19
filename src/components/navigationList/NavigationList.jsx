@@ -5,57 +5,57 @@ import { ImTrophy } from "react-icons/im";
 
 import { Link } from "react-router-dom";
 import { GetUrl } from "../getUrl/getUrl";
+import { useEffect } from "react";
 
 const NavigationList = ({ onSidebarMenuClick }) => {
   const { random, allTimeTop, last30Days } = GetUrl();
   const navigationListButtons = [
-    { name: "Game", icon: <RiGameFill />, className: "card red" },
-    { name: "Last 30 days", icon: <FaStar />, className: " card blue" },
-    { name: "All time top", icon: <ImTrophy />, className: "card green" },
+    {
+      name: "Game",
+      icon: <RiGameFill />,
+      className: "card red",
+      title: "Random",
+      api: random,
+    },
+    {
+      name: "Last 30 days",
+      icon: <FaStar />,
+      className: " card blue",
+      title: "Last 30 days",
+      api: last30Days,
+    },
+    {
+      name: "All time top",
+      icon: <ImTrophy />,
+      className: "card green",
+      title: "All time top",
+      api: allTimeTop,
+    },
   ];
+  // localStorage.setItem("savedMenuFromNavigationList", JSON.stringify(random));
+
+  useEffect(() => {
+    const selectedGames = navigationListButtons[0].api;
+    localStorage.setItem("savedGames", JSON.stringify(selectedGames));
+  }, [onSidebarMenuClick]);
+
   return (
     <div className="cards">
       <h2>Quick Navigation</h2>
       <div className="list-items">
         {navigationListButtons.map((item, i) => (
-          <Link to="/games" key={i} className="tip">
+          <Link
+            to="/games"
+            key={i}
+            className="tip"
+            onClick={() => onSidebarMenuClick(item.title, item.api)}
+          >
             <div className={item.className}>
               {item.icon}
               {item.name}
             </div>
           </Link>
         ))}
-
-        {/* <Link
-          to="/games"
-          className="tip"
-          onClick={() => onSidebarMenuClick("Random", random)}
-        >
-          <div className="card red">
-            <RiGameFill />
-            Games
-          </div>
-        </Link>
-        <Link
-          to="/games"
-          className="tip"
-          onClick={() => onSidebarMenuClick("Last 30 days", last30Days)}
-        >
-          <div className="card blue">
-            <FaStar />
-            Last 30 days
-          </div>
-        </Link>
-        <Link
-          to="/games"
-          className="tip"
-          onClick={() => onSidebarMenuClick("All time top", allTimeTop)}
-        >
-          <div className="card green">
-            <ImTrophy />
-            All time top
-          </div>
-        </Link> */}
       </div>
     </div>
   );

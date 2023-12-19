@@ -10,13 +10,14 @@ import { CartModal } from "../cartModal/cartModal";
 import "./App.css";
 
 const App = () => {
-  const [pageTitle, setPageTitle] = useState(null);
-  const [selectedApi, setSelectedApi] = useState(null);
+  // const [pageTitle, setPageTitle] = useState(null);
+  // const [selectedApi, setSelectedApi] = useState(null);
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);
   //to add the games from the gamesList into the cartModal
   const [addedCartGames, setAddedCartGames] = useState([]);
+  const [selectedGameList, setSelectedGameList] = useState({});
 
   let currentGamePrice = localStorage.getItem("currentGamePrice");
   const cartAddedGames = localStorage.getItem("cartAddedGames");
@@ -30,11 +31,8 @@ const App = () => {
   }, []);
 
   const handleSidebarClick = (title, api) => {
-    setPageTitle(title);
-    setSelectedApi(api);
-
-    console.log("TITLE:", title);
-    console.log("SELECTED API:", api);
+    setSelectedGameList({ title, api });
+    console.log(selectedGameList);
   };
 
   const handleGetId = (id) => {
@@ -83,8 +81,7 @@ const App = () => {
             element={
               <StorePage
                 onSidebarMenuClick={handleSidebarClick}
-                pageTitle={pageTitle}
-                selectedApi={selectedApi}
+                selectedGameList={selectedGameList}
                 handleGetId={handleGetId}
                 handleGetPrice={handleGetPrice}
                 handleModalStatus={handleModalStatus}

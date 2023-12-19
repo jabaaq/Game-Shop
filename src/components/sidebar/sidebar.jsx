@@ -91,7 +91,6 @@ function IconBox(props) {
     if (lastSelectedMenu) {
       setIsSelected(lastSelectedMenu);
     }
-    onSidebarMenuClick(lastSelectedMenu);
   }, [isSelected]);
 
   return (
