@@ -32,12 +32,11 @@ const NavigationList = ({ onSidebarMenuClick }) => {
       api: allTimeTop,
     },
   ];
-  // localStorage.setItem("savedMenuFromNavigationList", JSON.stringify(random));
 
-  useEffect(() => {
-    const selectedGames = navigationListButtons[0].api;
-    localStorage.setItem("savedGames", JSON.stringify(selectedGames));
-  }, [onSidebarMenuClick]);
+  const onNavigationButtonClick = (selectedMenu, selectedApi) => {
+    localStorage.setItem("savedMenu", selectedMenu);
+    localStorage.setItem("savedGames", JSON.stringify(selectedApi));
+  };
 
   return (
     <div className="cards">
@@ -48,7 +47,7 @@ const NavigationList = ({ onSidebarMenuClick }) => {
             to="/games"
             key={i}
             className="tip"
-            onClick={() => onSidebarMenuClick(item.title, item.api)}
+            onClick={() => onNavigationButtonClick(item.title, item.api)}
           >
             <div className={item.className}>
               {item.icon}

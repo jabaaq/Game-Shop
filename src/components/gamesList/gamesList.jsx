@@ -26,7 +26,6 @@ const GamesList = ({
 
   useEffect(() => {
     const lastSelectedGames = localStorage.getItem("savedGames");
-
     if (lastSelectedGames) {
       getAllGames(JSON.parse(lastSelectedGames)).then(onGameListLoaded);
     }
