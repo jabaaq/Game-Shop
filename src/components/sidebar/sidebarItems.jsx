@@ -8,12 +8,9 @@ import { FaCrown } from "react-icons/fa";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 
 import { GetUrl } from "../getUrl/getUrl";
-import { useState } from "react";
 
 const { popular2022, bestOfTheYear, last30Days, allTimeTop, random, soon } =
   GetUrl();
-
-const [isClicked, setIsClicked] = useState(false);
 
 const sideBarButtons = [
   {
@@ -21,7 +18,6 @@ const sideBarButtons = [
     name: "Random",
     icon: <GiPerspectiveDiceSixFacesRandom size={20} />,
     apiKey: random,
-    isClicked: isClicked,
   },
   {
     h3: "New Releases",

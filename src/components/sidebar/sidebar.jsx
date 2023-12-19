@@ -28,11 +28,10 @@ function IconBox(props) {
   const { h3 = null, name, icon, onSidebarMenuClick, apiKey } = props;
 
   const handleSelect = (selectedItem, selectedApi) => {
-    setIsSelected(selectedItem);
-
     document.querySelectorAll(".iconBox.selectedIconBox").forEach((item) => {
       item.classList.remove("selectedIconBox");
     });
+    setIsSelected(selectedApi);
 
     const savedData = {
       selectedItem: selectedItem,
