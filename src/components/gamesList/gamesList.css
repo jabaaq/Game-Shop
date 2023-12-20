@@ -26,7 +26,13 @@
     list-style-type: none;
 }
 
+.hide {
+    display: none;
+}
 
+.show {
+    display: block;
+}
 
 @media only screen and (max-width: 1200px) {
     .games-grid {
