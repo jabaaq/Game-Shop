@@ -22,6 +22,20 @@ const RawgService = () => {
     return _transformGameScreenshots(res);
   };
 
+  const getGameFromSearch = async (gameName) => {
+    const res = await request(
+      `https://api.rawg.io/api/games?${_apiKey}&search=${gameName}`
+    );
+    return _transformSearchedGames(res);
+  };
+
+  const _transformSearchedGames = (game) => {
+    return {
+      name: game.results[0].name,
+      background_image: game.results[0].background_image,
+    };
+  };
+
   const _transformGameScreenshots = (game) => {
     return {
       screenshots: game.results.map((screenshot) => screenshot.image),
@@ -65,6 +79,7 @@ const RawgService = () => {
     getAllGames,
     getGameData,
     getGameScreenshots,
+    getGameFromSearch,
   };
 };
 

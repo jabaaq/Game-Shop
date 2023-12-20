@@ -1,6 +1,25 @@
 import "./searchBar.css";
+import { RawgService } from "../../services/rawgService";
+import { useEffect, useState } from "react";
 
 const SearchBar = () => {
+  const { loading, getGameFromSearch } = RawgService();
+
+  const [games, setGames] = useState([]);
+
+  const onRequest = () => {
+    getGameFromSearch("Min").then(onGameLoading);
+  };
+
+  const onGameLoading = (newGames) => {
+    // setGames(() => [...newGames]);
+    console.log(newGames);
+  };
+
+  useEffect(() => {
+    onRequest();
+  }, []);
+
   return (
     <>
       <input
@@ -11,7 +30,7 @@ const SearchBar = () => {
       <button
         className="search__button"
         onClick={() => {
-          <CartModal />;
+          console.log("Clicked on search");
         }}
       >
         <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
