@@ -27,11 +27,13 @@
 
 .search-suggestion-box {
     width: 100%;
-    background-color: blue;
+    background-color: #ffff;
     position: absolute;
     z-index: 50;
-    margin-top: 15px;
+    margin-top: 10px;
     display: none;
+    border-radius: 12px;
+    padding: 15px;
 }
 
 .open {
