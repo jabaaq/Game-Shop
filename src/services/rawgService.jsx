@@ -30,10 +30,21 @@ const RawgService = () => {
   };
 
   const _transformSearchedGames = (game) => {
-    return {
-      name: game.results[0].name,
-      background_image: game.results[0].background_image,
-    };
+    //here i'm checking the results array
+    if (!game.results || game.results.length === 0) {
+      return [];
+    }
+
+    // Extracting the first 7-8 games and transform them
+    const searchedGames = game.results.slice(0, 8);
+    const transformedGames = searchedGames.map((eachGame) => {
+      return {
+        name: eachGame.name,
+        background_image: eachGame.background_image,
+        id: eachGame.id,
+      };
+    });
+    return transformedGames;
   };
 
   const _transformGameScreenshots = (game) => {

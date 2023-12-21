@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [games, setGames] = useState([]);
 
   const onRequest = () => {
-    getGameFromSearch("Min").then(onGameLoading);
+    getGameFromSearch("grand").then(onGameLoading);
   };
 
   const onGameLoading = (newGames) => {
