@@ -1,45 +1,61 @@
 import "./searchBar.css";
+import "animate.css";
+import { CiSearch } from "react-icons/ci";
+
 import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
 
 const SearchBar = () => {
   const { loading, getGameFromSearch } = RawgService();
 
-  const [games, setGames] = useState([]);
+  const [foundedGames, setFoundedGames] = useState([]);
+  const [searchedGames, setSearchedGames] = useState("");
 
   const onRequest = () => {
-    getGameFromSearch("grand").then(onGameLoading);
+    getGameFromSearch(searchedGames).then(onGameLoading);
   };
 
   const onGameLoading = (newGames) => {
-    // setGames(() => [...newGames]);
-    console.log(newGames);
+    setFoundedGames(() => [...newGames]);
   };
 
+  // useEffect(() => {
+  //   console.log(foundedGames);
+  // }, [foundedGames]);
+
+  // useEffect(() => {
+  //   onRequest();
+  // }, [searchedGames]);
+
   useEffect(() => {
-    onRequest();
-  }, []);
+    console.log(searchedGames);
+  }, [searchedGames]);
 
   return (
-    <>
+    <div className="container-input">
       <input
         type="text"
-        className="search__input"
-        placeholder="Search games..."
-      />
-      <button
-        className="search__button"
-        onClick={() => {
-          console.log("Clicked on search");
+        placeholder="Search"
+        name="text"
+        className="input"
+        onChange={(e) => {
+          setSearchedGames(e.target.value);
         }}
+      />
+      <CiSearch size={22} />
+      <div
+        className={`search-suggestion-box animate__animated animate__bounceIn  ${
+          searchedGames.length > 0 ? "open" : ""
+        }`}
       >
-        <svg className="search__icon" aria-hidden="true" viewBox="0 0 24 24">
-          <g>
-            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-          </g>
-        </svg>
-      </button>
-    </>
+        <div className="search-suggestion-list">
+          <li>Hello world!</li>
+          <li>Hello world!</li>
+          <li>Hello world!</li>
+          <li>Hello world!</li>
+        </div>
+      </div>
+    </div>
   );
 };
 

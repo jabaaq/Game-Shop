@@ -36,7 +36,7 @@ const RawgService = () => {
     }
 
     // Extracting the first 7-8 games and transform them
-    const searchedGames = game.results.slice(0, 8);
+    const searchedGames = game.results.slice(0, 9);
     const transformedGames = searchedGames.map((eachGame) => {
       return {
         name: eachGame.name,
