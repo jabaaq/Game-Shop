@@ -16,14 +16,12 @@
 }
 
 .tab__content .tab__content-inner {
-
     box-shadow: inset 0px -30px 29px 0px rgba(0, 0, 0, 0.77);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
-    /* background-color: aliceblue; */
 }
 
 .tab__content-inner {

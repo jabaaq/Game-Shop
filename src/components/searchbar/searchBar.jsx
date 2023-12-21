@@ -13,10 +13,19 @@ const SearchBar = () => {
   const [foundedGames, setFoundedGames] = useState([]);
   const [searchedGames, setSearchedGames] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const onRequest = () => {
     setIsSearching(true);
     getGameFromSearch(searchedGames).then(onGameLoading);
+  };
+
+  const handleCheckInputFocus = () => {
+    setIsInputFocused(true);
+  };
+
+  const handleCheckInputBlur = () => {
+    setIsInputFocused(false);
   };
 
   const onGameLoading = (newGames) => {
@@ -33,7 +42,7 @@ const SearchBar = () => {
   function renderFoundedGames(arr) {
     const games = arr.map((item, i) => {
       return (
-        <li key={i}>
+        <li className="searchBar-item-list" key={i}>
           <SearchBarItem
             name={item.name}
             backgroundImage={item.background_image}
@@ -52,22 +61,25 @@ const SearchBar = () => {
     <div className="container-input">
       <input
         type="text"
-        placeholder="Search"
-        name="text"
+        placeholder="Search games..."
         className="input"
         onChange={(e) => {
           setSearchedGames(e.target.value);
         }}
+        onFocus={handleCheckInputFocus}
+        onBlur={handleCheckInputBlur}
         value={searchedGames}
       />
       <CiSearch size={22} />
 
       <div
         className={`search-suggestion-box animate__animated animate__fadeIn ${
-          searchedGames.length > 0 ? "open" : ""
+          isInputFocused ? "open" : ""
         }`}
       >
-        {isSearching ? spinner : foundedGamesList}
+        <div className="search-suggestion-box-inner">
+          {isSearching ? spinner : foundedGamesList}
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,19 @@
 .searched-game-item-img {
     object-fit: cover;
     border-radius: 10px;
-    margin: 15px 0;
+    margin: 10px 0;
     width: 150px;
     height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .searchBar-item-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .searched-game-item-img {
+        width: 200px;
+        height: 150px;
+    }
 }
