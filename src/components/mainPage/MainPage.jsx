@@ -6,11 +6,17 @@ import { mdiAlphaRBox } from "@mdi/js";
 
 import "./MainPage.css";
 
-const MainPage = ({ onSidebarMenuClick, handleModalStatus, handleGetId }) => {
+const MainPage = ({
+  onSidebarMenuClick,
+  handleModalStatus,
+  handleGetId,
+  addedCartGames,
+}) => {
   return (
     <div className="page">
       <Header
         handleGetId={handleGetId}
+        addedCartGames={addedCartGames}
         handleModalStatus={() => {
           handleModalStatus(true);
         }}

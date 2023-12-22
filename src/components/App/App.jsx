@@ -72,6 +72,7 @@ const App = () => {
               onSidebarMenuClick={handleSidebarClick}
               handleModalStatus={handleModalStatus}
               handleGetId={handleGetId}
+              addedCartGames={addedCartGames}
             />
           }
         ></Route>

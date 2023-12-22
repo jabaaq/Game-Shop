@@ -3,8 +3,9 @@ import "./Header.css";
 import { CartModal } from "../cartModal/cartModal";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { SearchBar } from "../searchbar/searchbar";
+import { GoDotFill } from "react-icons/go";
 
-const Header = ({ handleModalStatus, handleGetId }) => {
+const Header = ({ handleModalStatus, handleGetId, addedCartGames }) => {
   return (
     <header>
       <div className="page-logo">
@@ -21,6 +22,12 @@ const Header = ({ handleModalStatus, handleGetId }) => {
         }}
       >
         <PiShoppingCartThin size={30} />
+        <GoDotFill
+          className={`game-into-cart ${
+            addedCartGames.length > 0 ? "show" : ""
+          }`}
+          size={12}
+        />
       </div>
     </header>
   );

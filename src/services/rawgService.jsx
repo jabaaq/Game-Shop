@@ -8,7 +8,6 @@ const RawgService = () => {
 
   const getAllGames = async (selectedApi = `${_apiBase}${_apiKey}&page=1`) => {
     const res = await request(selectedApi);
-    console.log(res.results.map(_transformGame));
     return res.results.map(_transformGame);
   };
   const getGameData = async (id) => {

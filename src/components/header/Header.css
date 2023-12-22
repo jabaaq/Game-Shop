@@ -21,6 +21,7 @@ header {
 }
 
 .cart {
+    display: flex;
     margin: 15px;
     cursor: pointer;
 }
@@ -29,7 +30,16 @@ header {
     transform: scale(1.1);
 }
 
+.game-into-cart {
+    position: relative;
+    margin-bottom: 20px;
+    color: rgb(27, 166, 171);
+    display: none;
+}
 
+.show {
+    display: block;
+}
 
 .logo {
     width: 3em;

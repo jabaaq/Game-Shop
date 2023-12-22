@@ -40,27 +40,29 @@ const CartModal = ({
       <div className="modal-box">
         <div className="modal-box-inner">
           <div className="modal-content">
-            <button
-              className="close-modal-btn"
-              onClick={() => {
-                handleModalStatus(false);
-              }}
-            >
-              <IoClose size={30} />
-            </button>
-            <header className="total-games">
-              <h2 className="modal-game-count">
-                {addedCartGames.length} Games
-              </h2>
+            <div className="modal-header-content">
               <button
-                className="clear-cart-btn"
+                className="close-modal-btn"
                 onClick={() => {
-                  setAddedCartGames([]);
+                  handleModalStatus(false);
                 }}
               >
-                Clear
+                <IoClose size={50} />
               </button>
-            </header>
+              <header className="total-games">
+                <button
+                  className="clear-cart-btn"
+                  onClick={() => {
+                    setAddedCartGames([]);
+                  }}
+                >
+                  Clear
+                </button>
+                <h2 className="modal-game-count">
+                  {addedCartGames.length} Games
+                </h2>
+              </header>
+            </div>
             <main className="modal-games-grid">
               {addedCartGames.map((item, i) => (
                 <CartItem

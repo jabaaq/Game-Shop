@@ -3,11 +3,12 @@ import { BiSolidGhost } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { SearchBar } from "../searchbar/searchbar";
+import { GoDotFill } from "react-icons/go";
 
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ handleModalStatus, handleGetId }) => {
+const Navbar = ({ handleModalStatus, handleGetId, addedCartGames }) => {
   return (
     <header id="main-header">
       <Link to="/">
@@ -34,6 +35,12 @@ const Navbar = ({ handleModalStatus, handleGetId }) => {
         }}
       >
         <PiShoppingCartThin size={30} />
+        <GoDotFill
+          className={`game-into-cart ${
+            addedCartGames.length > 0 ? "show" : ""
+          }`}
+          size={12}
+        />
       </div>
     </header>
   );

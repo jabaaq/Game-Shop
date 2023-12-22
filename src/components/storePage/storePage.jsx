@@ -14,7 +14,11 @@ const StorePage = ({
 }) => {
   return (
     <div className="shop-page">
-      <Navbar handleModalStatus={handleModalStatus} handleGetId={handleGetId} />
+      <Navbar
+        handleModalStatus={handleModalStatus}
+        handleGetId={handleGetId}
+        addedCartGames={addedCartGames}
+      />
       <SidebarMenu onSidebarMenuClick={onSidebarMenuClick} />
       <GamesList
         handleGetId={handleGetId}
