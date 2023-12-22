@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* right: 10vw; */
+    text-wrap: nowrap;
 }
 
 .cart-icon {
@@ -39,7 +39,7 @@
         width: 100%;
         /* justify-content: space-around; */
         gap: 0;
-        padding: 10px 5px;
+        padding: 0px 0px;
     }
 
     .header-title h2 {

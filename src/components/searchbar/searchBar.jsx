@@ -69,7 +69,7 @@ const SearchBar = ({ handleGetId }) => {
         placeholder="Search games..."
         className="input"
         onFocus={handleCheckInputFocus}
-        // onBlur={handleCheckInputBlur}
+        onBlur={handleCheckInputBlur}
         onChange={(e) => {
           setSearchedGames(e.target.value);
         }}

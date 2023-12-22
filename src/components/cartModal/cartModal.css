@@ -135,12 +135,16 @@
     background-color: rgba(16, 17, 18, 0.687);
 }
 
+.modal-game-count {
+    font-size: 25px;
+}
+
 @media only screen and (max-width:1200px) {
     .modal-games-grid {
         grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
-}
 
-.modal-game-count {
-    font-size: 25px;
+    .modal-box {
+        width: 40%;
+    }
 }

@@ -30,10 +30,7 @@ const GamesList = ({
   useEffect(() => {
     const lastSelectedGames = localStorage.getItem("savedGames");
     if (lastSelectedGames) {
-      console.log("last games");
       getAllGames(JSON.parse(lastSelectedGames)).then(onGameListLoaded);
-    } else {
-      console.log("Oops!");
     }
   }, []);
 
@@ -64,7 +61,6 @@ const GamesList = ({
 
   const eachGameCard = renderGames(games);
   const spinner = loading ? <Spinner /> : null;
-  // const goBackToMainPage = openMainPage ? <MainPage /> : null;
 
   return (
     <div className="games-list">
