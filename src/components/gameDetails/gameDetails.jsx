@@ -109,7 +109,7 @@ const View = ({
   return (
     <div className="gameDetails__container">
       <div className="details-header">
-        <button className="goBack-btn display-flex ">
+        <button className="goBack-btn display-flex">
           <Link to={"/games"}>
             <IoMdArrowRoundBack /> Back
           </Link>

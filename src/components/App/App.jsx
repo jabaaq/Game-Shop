@@ -72,6 +72,7 @@ const App = () => {
               <MainPage
                 onSidebarMenuClick={handleSidebarClick}
                 handleModalStatus={handleModalStatus}
+                handleGetId={handleGetId}
               />
             }
           ></Route>

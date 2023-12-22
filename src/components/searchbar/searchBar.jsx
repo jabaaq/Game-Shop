@@ -7,7 +7,7 @@ import { SearchBarItem } from "./searchBar-Item/searchBar-item";
 import { useEffect, useState } from "react";
 import { Spinner } from "../spinner/spinner";
 
-const SearchBar = () => {
+const SearchBar = ({}) => {
   const { loading, getGameFromSearch } = RawgService();
 
   const [foundedGames, setFoundedGames] = useState([]);
@@ -25,7 +25,9 @@ const SearchBar = () => {
   };
 
   const handleCheckInputBlur = () => {
-    setIsInputFocused(false);
+    setTimeout(() => {
+      setIsInputFocused(false);
+    }, 300);
   };
 
   const onGameLoading = (newGames) => {
@@ -63,11 +65,11 @@ const SearchBar = () => {
         type="text"
         placeholder="Search games..."
         className="input"
+        onFocus={handleCheckInputFocus}
+        onBlur={handleCheckInputBlur}
         onChange={(e) => {
           setSearchedGames(e.target.value);
         }}
-        onFocus={handleCheckInputFocus}
-        onBlur={handleCheckInputBlur}
         value={searchedGames}
       />
       <CiSearch size={22} />
