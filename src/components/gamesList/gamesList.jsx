@@ -3,6 +3,7 @@ import { GameCard } from "../gameCard/gameCard";
 import { Spinner } from "../spinner/spinner";
 import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
+
 const GamesList = ({
   handleGetId,
   handleGetPrice,
@@ -21,13 +22,18 @@ const GamesList = ({
   }, [selectedGameList.api]);
 
   const onRequest = () => {
-    getAllGames(selectedGameList.api).then(onGameListLoaded);
+    if (selectedGameList.api) {
+      getAllGames(selectedGameList.api).then(onGameListLoaded);
+    }
   };
 
   useEffect(() => {
     const lastSelectedGames = localStorage.getItem("savedGames");
     if (lastSelectedGames) {
+      console.log("last games");
       getAllGames(JSON.parse(lastSelectedGames)).then(onGameListLoaded);
+    } else {
+      console.log("Oops!");
     }
   }, []);
 
@@ -58,6 +64,7 @@ const GamesList = ({
 
   const eachGameCard = renderGames(games);
   const spinner = loading ? <Spinner /> : null;
+  // const goBackToMainPage = openMainPage ? <MainPage /> : null;
 
   return (
     <div className="games-list">

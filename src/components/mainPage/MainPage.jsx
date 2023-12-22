@@ -5,14 +5,8 @@ import Icon from "@mdi/react";
 import { mdiAlphaRBox } from "@mdi/js";
 
 import "./MainPage.css";
-import { useEffect } from "react";
 
 const MainPage = ({ onSidebarMenuClick, handleModalStatus }) => {
-  useEffect(() => {
-    // Clear local storage when MainPage component is mounted
-    localStorage.removeItem("savedMenu");
-    localStorage.removeItem("savedGames");
-  }, []);
   return (
     <div className="page">
       <Header

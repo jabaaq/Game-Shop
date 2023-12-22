@@ -106,11 +106,12 @@ const View = ({
 
   const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.
 
+  const lastSelectedGames = localStorage.getItem("savedGames");
   return (
     <div className="gameDetails__container">
       <div className="details-header">
         <button className="goBack-btn display-flex">
-          <Link to={"/games"}>
+          <Link to={lastSelectedGames ? "/games" : "/"}>
             <IoMdArrowRoundBack /> Back
           </Link>
         </button>

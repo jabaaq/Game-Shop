@@ -21,6 +21,7 @@ const SearchBar = ({}) => {
   };
 
   const handleCheckInputFocus = () => {
+    console.log("box is still opened");
     setIsInputFocused(true);
   };
 
@@ -44,7 +45,13 @@ const SearchBar = ({}) => {
   function renderFoundedGames(arr) {
     const games = arr.map((item, i) => {
       return (
-        <li className="searchBar-item-list" key={i}>
+        <li
+          className="searchBar-item-list"
+          key={i}
+          onClick={() => {
+            console.log("Here is Game ID:", item.id);
+          }}
+        >
           <SearchBarItem
             name={item.name}
             backgroundImage={item.background_image}
@@ -78,6 +85,7 @@ const SearchBar = ({}) => {
         className={`search-suggestion-box animate__animated animate__fadeIn ${
           isInputFocused ? "open" : ""
         }`}
+        onFocus={handleCheckInputFocus}
       >
         <div className="search-suggestion-box-inner">
           {isSearching ? spinner : foundedGamesList}
