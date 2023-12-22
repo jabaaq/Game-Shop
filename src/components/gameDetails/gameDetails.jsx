@@ -12,7 +12,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import AccordionTable from "./accordion/accordion";
 import { RawgService } from "../../services/rawgService";
 import { Spinner } from "../spinner/spinner";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AddToCart } from "./addToCart/addToCart";
 import { motion } from "framer-motion";
 
@@ -28,24 +28,25 @@ const GameDetails = ({
 }) => {
   let storedGame = localStorage.getItem("selectedGame");
   let storedGameScreenshots = localStorage.getItem("gameScreenshots");
-
   const [selectedGame, setSelectedGame] = useState({});
   const [gameScreenshots, setGameScreenshots] = useState({});
   const { loading, getGameData, getGameScreenshots } = RawgService();
 
+  const { id } = useParams();
+
   //This is to automatically send data when the page is opened
   useEffect(() => {
-    if (selectedGameId) {
+    if (id) {
       onRequest();
     } else {
       setSelectedGame(JSON.parse(storedGame));
       setGameScreenshots(JSON.parse(storedGameScreenshots));
     }
-  }, [selectedGameId]);
+  }, [selectedGameId, id]);
 
   const onRequest = () => {
-    getGameData(selectedGameId).then(onGameLoaded);
-    getGameScreenshots(selectedGameId).then((res) => {
+    getGameData(id).then(onGameLoaded);
+    getGameScreenshots(id).then((res) => {
       setGameScreenshots(res);
       localStorage.setItem("gameScreenshots", JSON.stringify(res));
     });
@@ -92,9 +93,11 @@ const View = ({
     website,
     developers,
     publishers,
-    id,
+    // id,
     background_image,
   } = game;
+
+  const { id } = useParams();
 
   //Information to add to cart
   const selectedGameInfoForTheCart = {
@@ -103,9 +106,7 @@ const View = ({
     image: background_image,
     price: handleGetPrice,
   };
-
   const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.
-
   const lastSelectedGames = localStorage.getItem("savedGames");
   return (
     <div className="gameDetails__container">

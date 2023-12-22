@@ -7,7 +7,7 @@ import { SearchBar } from "../searchbar/searchbar";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({ handleModalStatus }) => {
+const Navbar = ({ handleModalStatus, handleGetId }) => {
   return (
     <header id="main-header">
       <Link to="/">
@@ -24,7 +24,7 @@ const Navbar = ({ handleModalStatus }) => {
       </Link>
       <div className="searchbar">
         <div className="search">
-          <SearchBar />
+          <SearchBar handleGetId={handleGetId} />
         </div>
       </div>
       <div

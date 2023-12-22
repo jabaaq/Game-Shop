@@ -163,8 +163,10 @@ body {
     color: white !important;
 }
 
+
+
 .swiper-pagination-bullet-active {
-    background-color: white !important;
+    background-color: rgb(27, 166, 171) !important;
 }
 
 @media only screen and (max-width: 600px) {

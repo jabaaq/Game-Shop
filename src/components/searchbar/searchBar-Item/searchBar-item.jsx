@@ -1,14 +1,13 @@
 import "./searchBar-item.css";
 import { Link } from "react-router-dom";
 
-const SearchBarItem = ({ name, backgroundImage, id }) => {
+const SearchBarItem = ({ name, backgroundImage, id, handleGetId }) => {
   return (
-    <a
-      to={"/games/game"}
+    <Link
+      to={`/games/game/${id}`}
       className="searchBar-item-box"
-      id={id}
       onClick={() => {
-        console.log(id);
+        handleGetId(id);
       }}
     >
       <img
@@ -17,7 +16,7 @@ const SearchBarItem = ({ name, backgroundImage, id }) => {
         alt="Game background"
       />
       <h4>{name}</h4>
-    </a>
+    </Link>
   );
 };
 

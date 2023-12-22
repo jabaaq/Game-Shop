@@ -41,7 +41,7 @@ const GameCard = ({
       }}
       className="card"
     >
-      <Link to={"/games/game"}>
+      <Link to={`/games/game/${id}`}>
         <img src={image} className="card-image" alt="Game Image" />
 
         <div className="add-to-cart">

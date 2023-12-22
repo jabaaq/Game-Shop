@@ -7,7 +7,7 @@ import { SearchBarItem } from "./searchBar-Item/searchBar-item";
 import { useEffect, useState } from "react";
 import { Spinner } from "../spinner/spinner";
 
-const SearchBar = ({}) => {
+const SearchBar = ({ handleGetId }) => {
   const { loading, getGameFromSearch } = RawgService();
 
   const [foundedGames, setFoundedGames] = useState([]);
@@ -26,9 +26,10 @@ const SearchBar = ({}) => {
   };
 
   const handleCheckInputBlur = () => {
+    console.log("Box is closed!");
     setTimeout(() => {
       setIsInputFocused(false);
-    }, 300);
+    }, 500);
   };
 
   const onGameLoading = (newGames) => {
@@ -45,17 +46,12 @@ const SearchBar = ({}) => {
   function renderFoundedGames(arr) {
     const games = arr.map((item, i) => {
       return (
-        <li
-          className="searchBar-item-list"
-          key={i}
-          onClick={() => {
-            console.log("Here is Game ID:", item.id);
-          }}
-        >
+        <li className="searchBar-item-list" key={i}>
           <SearchBarItem
             name={item.name}
             backgroundImage={item.background_image}
             id={item.id}
+            handleGetId={handleGetId}
           />
         </li>
       );
@@ -73,7 +69,7 @@ const SearchBar = ({}) => {
         placeholder="Search games..."
         className="input"
         onFocus={handleCheckInputFocus}
-        onBlur={handleCheckInputBlur}
+        // onBlur={handleCheckInputBlur}
         onChange={(e) => {
           setSearchedGames(e.target.value);
         }}
@@ -85,7 +81,6 @@ const SearchBar = ({}) => {
         className={`search-suggestion-box animate__animated animate__fadeIn ${
           isInputFocused ? "open" : ""
         }`}
-        onFocus={handleCheckInputFocus}
       >
         <div className="search-suggestion-box-inner">
           {isSearching ? spinner : foundedGamesList}

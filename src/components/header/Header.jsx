@@ -4,7 +4,7 @@ import { CartModal } from "../cartModal/cartModal";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { SearchBar } from "../searchbar/searchbar";
 
-const Header = ({ handleModalStatus }) => {
+const Header = ({ handleModalStatus, handleGetId }) => {
   return (
     <header>
       <div className="page-logo">
@@ -12,7 +12,7 @@ const Header = ({ handleModalStatus }) => {
         <h2 className="title">Game Wave</h2>
       </div>
       <div className="search">
-        <SearchBar />
+        <SearchBar handleGetId={handleGetId} />
       </div>
       <div
         className="cart"

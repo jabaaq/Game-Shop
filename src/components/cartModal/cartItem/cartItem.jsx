@@ -1,8 +1,6 @@
-import { button } from "@nextui-org/react";
 import "./cartItem.css";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { TbRubberStampOff } from "react-icons/tb";
 
 const CartItem = ({
   name,
@@ -23,7 +21,7 @@ const CartItem = ({
   return (
     <div className="cart-item-container">
       <Link
-        to={"/games/game"}
+        to={`/games/game/${id}`}
         className="cart-item-container"
         onClick={() => {
           handleGetId(id);
