@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Navbar } from "../navbar/Navbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import AccordionTable from "./accordion/accordion";
 import { RawgService } from "../../services/rawgService";
@@ -15,6 +14,8 @@ import { Spinner } from "../spinner/spinner";
 import { Link, useParams } from "react-router-dom";
 import { AddToCart } from "./addToCart/addToCart";
 import { motion } from "framer-motion";
+import { AnimatedPage } from "../animatedPage/AnimatedPage";
+import { Navbar } from "../navBar/NavBar";
 
 import { Pagination, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
@@ -36,7 +37,6 @@ const GameDetails = ({
 
   //This is to automatically send data when the page is opened
   useEffect(() => {
-    console.log(addedCartGames);
     if (id) {
       onRequest();
     } else {
@@ -113,70 +113,72 @@ const View = ({
   const screenshotsArray = screenshots.screenshots || []; //This is used to ensure that screenshotsArray will always be an array, even if screenshots.screenshots is undefined or false.
   const lastSelectedGames = localStorage.getItem("savedGames");
   return (
-    <div className="gameDetails__container">
-      <div className="details-header">
-        <button className="goBack-btn display-flex">
-          <Link to={lastSelectedGames ? "/games" : "/"}>
-            <IoMdArrowRoundBack /> Back
-          </Link>
-        </button>
-        <div className="cur-game-name">
-          <h2>{name}</h2>
-        </div>
-      </div>
-      <div className="details-content">
-        <div className="game-screenshots">
-          <>
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={30}
-              loop={true}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {screenshotsArray.map((screenshot, i) => (
-                <SwiperSlide key={i}>
-                  <img src={screenshot} alt={`Game screenshot ${i}`} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </>
-        </div>
-        <div className="game-details">
-          <div className="description-box">
-            <AccordionTable
-              description={description}
-              rating={rating}
-              released={released}
-              genres={genres}
-              website={website}
-              developers={developers}
-              publishers={publishers}
-            />
+    <AnimatedPage>
+      <div className="gameDetails__container">
+        <div className="details-header">
+          <button className="goBack-btn display-flex">
+            <Link to={lastSelectedGames ? "/games" : "/"}>
+              <IoMdArrowRoundBack /> Back
+            </Link>
+          </button>
+          <div className="cur-game-name">
+            <h2>{name}</h2>
           </div>
-          <div className="add-to-cart-container">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="add-to-cart-btn"
-            >
-              <AddToCart
-                handleGetPrice={handleGetPrice}
-                //to add the games into the shopping cart
-                selectedGameInfoForTheCart={selectedGameInfoForTheCart}
-                handleAddCartGames={handleAddCartGames}
-                //To check if the game is added or not - to stylize the add cart button
-                addedCartGames={addedCartGames}
+        </div>
+        <div className="details-content">
+          <div className="game-screenshots">
+            <>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                loop={true}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+              >
+                {screenshotsArray.map((screenshot, i) => (
+                  <SwiperSlide key={i}>
+                    <img src={screenshot} alt={`Game screenshot ${i}`} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </>
+          </div>
+          <div className="game-details">
+            <div className="description-box">
+              <AccordionTable
+                description={description}
+                rating={rating}
+                released={released}
+                genres={genres}
+                website={website}
+                developers={developers}
+                publishers={publishers}
               />
-            </motion.button>
+            </div>
+            <div className="add-to-cart-container">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="add-to-cart-btn"
+              >
+                <AddToCart
+                  handleGetPrice={handleGetPrice}
+                  //to add the games into the shopping cart
+                  selectedGameInfoForTheCart={selectedGameInfoForTheCart}
+                  handleAddCartGames={handleAddCartGames}
+                  //To check if the game is added or not - to stylize the add cart button
+                  addedCartGames={addedCartGames}
+                />
+              </motion.button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </AnimatedPage>
   );
 };
 

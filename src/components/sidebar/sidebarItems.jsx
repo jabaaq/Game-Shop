@@ -6,11 +6,19 @@ import { IoStatsChartSharp } from "react-icons/io5";
 import { BiSolidMedal } from "react-icons/bi";
 import { FaCrown } from "react-icons/fa";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
+import { RiBoxingFill } from "react-icons/ri";
 
 import { GetUrl } from "../getUrl/getUrl";
 
-const { popular2022, bestOfTheYear, last30Days, allTimeTop, random, soon } =
-  GetUrl();
+const {
+  popular2022,
+  bestOfTheYear,
+  last30Days,
+  allTimeTop,
+  random,
+  soon,
+  action,
+} = GetUrl();
 
 const sideBarButtons = [
   {
