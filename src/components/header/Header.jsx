@@ -2,8 +2,8 @@ import { BiSolidGhost } from "react-icons/bi";
 import "./Header.css";
 import { CartModal } from "../cartModal/cartModal";
 import { PiShoppingCartThin } from "react-icons/pi";
-import { SearchBar } from "../searchbar/searchbar";
 import { GoDotFill } from "react-icons/go";
+import { SearchBar } from "../searchbar/searchBar";
 
 const Header = ({ handleModalStatus, handleGetId, addedCartGames }) => {
   return (

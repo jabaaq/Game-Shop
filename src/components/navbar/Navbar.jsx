@@ -2,7 +2,7 @@ import Icon from "@mdi/react";
 import { BiSolidGhost } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { PiShoppingCartThin } from "react-icons/pi";
-import { SearchBar } from "../searchbar/searchbar";
+import { SearchBar } from "../searchbar/searchBar";
 import { GoDotFill } from "react-icons/go";
 
 import { Link } from "react-router-dom";

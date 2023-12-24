@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Navbar } from "../navBar/NavBar";
+import { Navbar } from "../navbar/Navbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import AccordionTable from "./accordion/accordion";
 import { RawgService } from "../../services/rawgService";
@@ -36,6 +36,7 @@ const GameDetails = ({
 
   //This is to automatically send data when the page is opened
   useEffect(() => {
+    console.log(addedCartGames);
     if (id) {
       onRequest();
     } else {
@@ -71,7 +72,10 @@ const GameDetails = ({
   );
   return (
     <div className="gameDetails">
-      <Navbar handleModalStatus={handleModalStatus} />
+      <Navbar
+        handleModalStatus={handleModalStatus}
+        addedCartGames={addedCartGames}
+      />
       {loading ? spinner : content}
     </div>
   );

@@ -21,12 +21,10 @@ const SearchBar = ({ handleGetId }) => {
   };
 
   const handleCheckInputFocus = () => {
-    console.log("box is still opened");
     setIsInputFocused(true);
   };
 
   const handleCheckInputBlur = () => {
-    console.log("Box is closed!");
     setTimeout(() => {
       setIsInputFocused(false);
     }, 500);
