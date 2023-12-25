@@ -21,7 +21,6 @@ const RawgService = () => {
     const res = await request(
       `https://api.rawg.io/api/games/${id}/screenshots?${_apiKey}`
     );
-    console.log(res);
     return _transformGameScreenshots(res);
   };
 
