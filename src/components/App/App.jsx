@@ -10,8 +10,6 @@ import { CartModal } from "../cartModal/cartModal";
 import "./App.css";
 
 const App = () => {
-  // const [pageTitle, setPageTitle] = useState(null);
-  // const [selectedApi, setSelectedApi] = useState(null);
   const [selectedGameId, setSelectedGameId] = useState(null);
   const [gamePrice, setGamePrice] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);

@@ -3,6 +3,7 @@ import { GameCard } from "../gameCard/gameCard";
 import { Spinner } from "../spinner/spinner";
 import { RawgService } from "../../services/rawgService";
 import { useEffect, useState } from "react";
+import { ErrorMessage } from "../errorMessage/errorMessage";
 
 const GamesList = ({
   handleGetId,
@@ -61,12 +62,14 @@ const GamesList = ({
 
   const eachGameCard = renderGames(games);
   const spinner = loading ? <Spinner /> : null;
+  const errorMessage = error ? <ErrorMessage /> : null;
 
   return (
     <div className="games-list">
       <div className={`page-title`}>{selectedGameList.title}</div>
       {eachGameCard}
       {spinner}
+      {errorMessage}
     </div>
   );
 };
