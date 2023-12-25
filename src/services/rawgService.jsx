@@ -1,5 +1,7 @@
 import { useHttp } from "../hook/http.hook";
 import { _apiKey } from "../apiKey";
+import image404 from "../../src/assets/img/404_image.gif";
+
 const RawgService = () => {
   const { loading, error, request, clearError } = useHttp();
 
@@ -10,6 +12,7 @@ const RawgService = () => {
     const res = await request(selectedApi);
     return res.results.map(_transformGame);
   };
+
   const getGameData = async (id) => {
     const res = await request(`https://api.rawg.io/api/games/${id}?${_apiKey}`);
     return _transformGameDetails(res);
@@ -18,6 +21,7 @@ const RawgService = () => {
     const res = await request(
       `https://api.rawg.io/api/games/${id}/screenshots?${_apiKey}`
     );
+    console.log(res);
     return _transformGameScreenshots(res);
   };
 
@@ -74,7 +78,7 @@ const RawgService = () => {
       id: game.id,
       name: game.name.length >= 80 ? game.name.slice(0, 80) + "..." : game.name,
       released: game.released,
-      image: game.background_image,
+      image: game.background_image === null ? image404 : game.background_image,
       platforms: game.platforms[0].platform.name,
       slug: game.platforms[0].platform.slug,
       rating: game.rating,

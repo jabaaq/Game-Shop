@@ -11,7 +11,6 @@ const GetUrl = () => {
 
     return newDate;
   };
-
   const randomNum = () => {
     return Math.floor(Math.random() * 400);
   };

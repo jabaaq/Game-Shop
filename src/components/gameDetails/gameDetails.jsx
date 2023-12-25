@@ -122,30 +122,30 @@ const View = ({
             </Link>
           </button>
           <div className="cur-game-name">
-            <h2>{name}</h2>
+            <h2>
+              {name && name.length > 40 ? name.slice(0, 40) + "..." : name}{" "}
+            </h2>
           </div>
         </div>
         <div className="details-content">
           <div className="game-screenshots">
-            <>
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={30}
-                loop={true}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-              >
-                {screenshotsArray.map((screenshot, i) => (
-                  <SwiperSlide key={i}>
-                    <img src={screenshot} alt={`Game screenshot ${i}`} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {screenshotsArray.map((screenshot, i) => (
+                <SwiperSlide key={i}>
+                  <img src={screenshot} alt={`Game screenshot ${i}`} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
           <div className="game-details">
             <div className="description-box">
