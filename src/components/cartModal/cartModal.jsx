@@ -59,7 +59,7 @@ const CartModal = ({
                   Clear
                 </button>
                 <h2 className="modal-game-count">
-                  {addedCartGames.length} Games
+                  {addedCartGames && addedCartGames.length} Games
                 </h2>
               </header>
             </div>
