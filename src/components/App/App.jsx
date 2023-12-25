@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
-import { MainPage } from "../mainPage/mainPage";
-import { StorePage } from "../storePage/storePage";
-import { GameDetails } from "../gameDetails/gameDetails";
+import { MainPage } from "../mainPage/MainPage";
+import { StorePage } from "../storePage/StorePage";
+import { GameDetails } from "../gameDetails/GameDetails";
 import { CartModal } from "../cartModal/cartModal";
 
 import "./App.css";

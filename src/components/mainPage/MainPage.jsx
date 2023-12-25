@@ -70,8 +70,8 @@ const MainPage = ({
             <NavigationList onSidebarMenuClick={onSidebarMenuClick} />
           </div>
         </div>
+        <video src={video} autoPlay loop muted></video>
       </div>
-      <video src={video} autoPlay loop muted></video>
     </AnimatedPage>
   );
 };

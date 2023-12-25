@@ -37,7 +37,7 @@ const Navbar = ({ handleModalStatus, handleGetId, addedCartGames }) => {
         <PiShoppingCartThin size={30} />
         <GoDotFill
           className={`game-into-cart ${
-            addedCartGames.length > 0 ? "show" : ""
+            addedCartGames && addedCartGames.length > 0 ? "show" : ""
           }`}
           size={12}
         />
