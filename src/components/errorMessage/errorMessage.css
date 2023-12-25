@@ -37,3 +37,18 @@
 .error-text-paragraph {
     margin: 0;
 }
+
+.modal-buttons {
+    display: flex;
+}
+
+.restart-button a {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.restart-button a span {
+    margin-left: -10px;
+}
