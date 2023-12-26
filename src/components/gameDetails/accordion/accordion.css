@@ -26,7 +26,7 @@
 
 .tab__content-inner {
     width: 100%;
-    height: 15vw;
+    height: 20vw;
     overflow-y: scroll;
     overflow-x: hidden;
     padding-right: 17px;
@@ -98,5 +98,9 @@
 @media only screen and (max-width: 600px) {
     .tab__label {
         padding: 0;
+    }
+
+    .tab__content-inner {
+        max-height: 25vw;
     }
 }
