@@ -1,4 +1,3 @@
-import Icon from "@mdi/react";
 import { BiSolidGhost } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { PiShoppingCartThin } from "react-icons/pi";
