@@ -1,4 +1,4 @@
-import { Navbar } from "../navBar/navBar";
+import { Navbar } from "../navBar/NavBar";
 import { SidebarMenu } from "../sidebar/sidebar";
 import { GamesList } from "../gamesList/gamesList";
 import { AnimatedPage } from "../animatedPage/AnimatedPage";

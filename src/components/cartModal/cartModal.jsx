@@ -26,9 +26,9 @@ const CartModal = ({
   }, []);
 
   //To calculate the total price of the games added to the cart
-  const totalNum = addedCartGames.reduce((acc, curr) => {
-    return acc + Number(curr.price);
-  }, 0);
+  const totalNum = addedCartGames
+    ? addedCartGames.reduce((acc, curr) => acc + Number(curr.price), 0)
+    : 0;
 
   return (
     <div
