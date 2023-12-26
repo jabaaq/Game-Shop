@@ -3,7 +3,7 @@
 
 #sidebar {
     position: absolute;
-    width: 20%;
+    width: 19%;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -91,13 +91,13 @@
 
 @media only screen and (max-width:900px) {
     .each-section {
-        font-size: 2.5vw;
+        font-size: 1.5vw;
     }
 }
 
 @media only screen and (max-width:600px) {
     .each-section {
-        font-size: 3vw;
+        font-size: 2.3vw;
     }
 
     .section-box {

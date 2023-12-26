@@ -1,7 +1,6 @@
 .card {
-    width: 20vw;
+    width: 23vw;
     background: #202020;
-    /* padding: .4em; */
     border-radius: 15px;
     font-family: 'Poppins', sans-serif;
     height: 300px;
@@ -86,20 +85,3 @@
         margin: 0 2vw;
     }
 }
-
-
-/* 
-
-@media only screen and (max-width: 600px) {
-    .card {
-        width: 190px;
-        height: 300px;
-    }
-}
-
-@media only screen and (max-width: 300px) {
-    .card {
-        width: 200px;
-        height: 290px;
-    }
-} */
