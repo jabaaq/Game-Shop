@@ -4,6 +4,7 @@ import { NavigationList } from "../navigationList/NavigationList";
 import Icon from "@mdi/react";
 import { mdiAlphaRBox } from "@mdi/js";
 import { AnimatedPage } from "../animatedPage/AnimatedPage";
+import { TbSquareLetterR } from "react-icons/tb";
 
 import "./MainPage.css";
 
@@ -59,7 +60,7 @@ const MainPage = ({
                   target="_blank"
                 >
                   <p>
-                    <Icon path={mdiAlphaRBox} size={1} />
+                    <TbSquareLetterR size={30} />
                     RAWG
                   </p>
                 </a>

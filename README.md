@@ -5,8 +5,9 @@
 🔥 [Live Demo](https://game-wave.vercel.app/)
 
 <h2>Built with</h2>
+
 - React
-- Swiper 
+- Swiper
 - Frame Motion
 - RAWG API
 

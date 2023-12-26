@@ -166,7 +166,6 @@ video {
     }
 
     #content2 a p {
-        width: 10vw;
         font-size: 3vw;
     }
 
@@ -175,7 +174,6 @@ video {
         flex-direction: column;
         gap: 80px;
         width: 100%;
-        /* justify-content: center; */
     }
 
     .right-page,

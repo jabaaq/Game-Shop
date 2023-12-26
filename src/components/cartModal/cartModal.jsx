@@ -2,6 +2,7 @@ import "./cartModal.css";
 import { CartItem } from "./cartItem/cartItem";
 import { IoClose } from "react-icons/io5";
 import { useEffect } from "react";
+import { MdDelete } from "react-icons/md";
 
 const CartModal = ({
   modalStatus,
@@ -56,7 +57,7 @@ const CartModal = ({
                     setAddedCartGames([]);
                   }}
                 >
-                  Clear
+                  <MdDelete size={25} />
                 </button>
                 <h2 className="modal-game-count">
                   {addedCartGames && addedCartGames.length} Games
