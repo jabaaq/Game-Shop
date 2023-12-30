@@ -1,5 +1,5 @@
 import "./gameDetails.css";
-
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -70,14 +70,22 @@ const GameDetails = ({
       addedCartGames={addedCartGames}
     />
   );
+
+  const { name } = selectedGame;
   return (
-    <div className="gameDetails">
-      <Navbar
-        handleModalStatus={handleModalStatus}
-        addedCartGames={addedCartGames}
-      />
-      {loading ? spinner : content}
-    </div>
+    <HelmetProvider>
+      <Helmet>
+        <meta name="description" content={`Information about ${name}`} />
+        <title>Game Wave | {`${name}`}</title>
+      </Helmet>
+      <div className="gameDetails">
+        <Navbar
+          handleModalStatus={handleModalStatus}
+          addedCartGames={addedCartGames}
+        />
+        {loading ? spinner : content}
+      </div>
+    </HelmetProvider>
   );
 };
 
