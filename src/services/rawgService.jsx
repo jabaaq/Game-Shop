@@ -3,7 +3,8 @@ import { _apiKey } from "../apiKey";
 import image404 from "../../src/assets/img/404_image.gif";
 
 const RawgService = () => {
-  const { loading, error, request, clearError } = useHttp();
+  const { loading, error, request, clearError, process, setProcess } =
+    useHttp();
 
   const _apiBase = "https://api.rawg.io/api/games?";
   const _gameInfo = `https://api.rawg.io/api/games/3498?${_apiKey}`;
@@ -93,6 +94,8 @@ const RawgService = () => {
     getGameData,
     getGameScreenshots,
     getGameFromSearch,
+    process,
+    setProcess,
   };
 };
 

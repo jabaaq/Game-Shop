@@ -12,7 +12,7 @@ const GamesList = ({
   addedCartGames,
   selectedGameList,
 }) => {
-  const { loading, error, getAllGames } = RawgService();
+  const { loading, error, getAllGames, process, setProcess } = RawgService();
   const [games, setGames] = useState([]);
   useEffect(() => {
     setGames([]);
@@ -60,16 +60,29 @@ const GamesList = ({
     return <ul className="games-grid">{items}</ul>;
   }
 
-  const eachGameCard = renderGames(games);
-  const spinner = loading ? <Spinner /> : null;
-  const errorMessage = error ? <ErrorMessage /> : null;
+  const setContent = (process, list) => {
+    switch (process) {
+      case "waiting":
+        return null;
+        break;
+      case "loading":
+        return <Spinner />;
+        break;
+      case "confirmed":
+        return renderGames(list);
+        break;
+      case "error":
+        return <ErrorMessage />;
+        break;
+      default:
+        throw new Error("Unexpected process state");
+    }
+  };
 
   return (
     <div className="games-list">
       <div className={`page-title`}>{selectedGameList.title}</div>
-      {eachGameCard}
-      {spinner}
-      {errorMessage}
+      {setContent(process, games)}
     </div>
   );
 };

@@ -140,7 +140,7 @@ const View = ({
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
-              loop={true}
+              // loop={true}
               pagination={{
                 clickable: true,
               }}
