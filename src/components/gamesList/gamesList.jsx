@@ -81,7 +81,7 @@ const GamesList = ({
 
   return (
     <div className="games-list">
-      <div className={`page-title`}>{selectedGameList.title}</div>
+      <div className="page-title">{selectedGameList.title}</div>
       {setContent(process, games)}
     </div>
   );
